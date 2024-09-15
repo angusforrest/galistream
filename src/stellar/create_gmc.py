@@ -6,6 +6,7 @@ import numpy
 from astropy import units as u
 from galpy.potential import (MovingObjectPotential,MWPotential2014,PlummerPotential,vcirc,)
 from galpy.orbit import Orbit
+from galpy.util import conversion
 
 def distributionGMC(rin, rout):
     phi = numpy.random.rand()
@@ -22,14 +23,14 @@ def distributionGMC(rin, rout):
     ]
 def create_orbits(progress,ts,num,rin,rout):
     orbits = Orbit([distributionGMC(rin,rout) for x in range(num)])
-    orbits.integrate(ts, MWPotential2014, method="dop853",progressbar=progress)
+    orbits.integrate(ts, MWPotential2014, method="dop853_c",progressbar=progress)
     return orbits
     
 def create_potentials(progress,time,lifetime,num,rin,rout):
     if not ("OMP_NUM_THREADS" in os.environ):
         print("OMP_NUM_THREADS environmental variable not set")
         return 0
-    ts = numpy.linspace(0.0,time,2001)*u.Gyr
+    ts = conversion.parse_time(numpy.linspace(0.0,time,2001)*u.Gyr,ro=8.0,vo=220.0)
 
     if lifetime != None:
         print("lifetime on gmc currently not implemented")
