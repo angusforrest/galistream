@@ -34,21 +34,8 @@ def integrate(orbits,pot):
     ts = pot[0]._orb.t
     truth = orbits[:]
     deflect = orbits[:100]
-    truth.integrate(ts,pot=MWPotential2014, method="dop853_c")
-    for i in range(math.ceil(len(deflect)/20)):
-        end = 20*(i+1)
-        if end > len(deflect):
-            end = len(deflect)
-        if os.path.exists(f"temp_orbits_{i}.pickle"):
-            with open(f"temp_orbits_{i}.pickle","rb") as file:
-                deflect = pickle.load(file)
-        else:
-            deflect[20*i:end].integrate(ts,pot=MWPotential2014 + pot, method="dop853_c")
-            res = deflect[20*i:end]
-            print(res.x(ts))
-            with open(f"temp_orbits_{i}.pickle","wb") as file:
-                save = copy.deepcopy(deflect)
-                pickle.dump(save,file)
+    truth.integrate(ts,pot=MWPotential2014, method="dop853_c",progressbar=False)
+    deflect.integrate(ts,pot=MWPotential2014 + pot, method="dop853_c",progressbar=False)
     return truth, deflect
 
 def main():
