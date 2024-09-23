@@ -59,7 +59,7 @@ def main():
 	if bool(args.split) == True:
 		print("split")
 		split_orbits(data)
-	else if bool(args.compile) == True:
+	elif bool(args.compile) == True:
 		print("compile")
 		compile()
 	else:
