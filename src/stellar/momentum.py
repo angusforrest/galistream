@@ -27,7 +27,7 @@ def fetch_orbit_data(input,filename):
     print("fetch branch")
     res = [input.E(t=ts),input.Lz(t=ts)]
     print(res)
-    with open(f"done_{filename}","wb") as file:
+    with open(f"done_{os.path.basename(filename)}.pickle","wb") as file:
         pickle.dump(res,file)
     return 0
 
