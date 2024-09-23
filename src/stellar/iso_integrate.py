@@ -44,7 +44,8 @@ def integrate(orbits,pot):
                 deflect = pickle.load(file)
         else:
             deflect[20*i:end].integrate(ts,pot=MWPotential2014 + pot, method="dop853_c")
-            print(deflect[20*i:end].x(t=ts))
+            res = deflect[20*i:end]
+            print(res.x(t=ts))
             with open(f"temp_orbits_{i}.pickle","wb") as file:
                 save = copy.deepcopy(deflect)
                 pickle.dump(save,file)
