@@ -36,7 +36,7 @@ def integrate(orbits,pot):
     deflect = orbits[:100]
     truth.integrate(ts,pot=MWPotential2014, method="dop853_c")
     for i in range(math.ceil(len(deflect)/20)):
-        end = 200*(i+1)
+        end = 20*(i+1)
         if end > len(deflect):
             end = len(deflect)
         if os.path.exists(f"temp_orbits_{i}.pickle"):
