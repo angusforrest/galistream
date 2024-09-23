@@ -36,7 +36,7 @@ def compile():
 	for filename in os.listdir():
 		if "wipmom" in filename:
 			with open(filename, "rb") as file:
-				if res == numpy.array([]):
+				if res.size == 0:
 					res = pickle.load(file)
 				else:
 					res = numpy.concatenate((res, pickle.load(file)),1)
