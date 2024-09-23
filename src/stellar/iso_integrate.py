@@ -30,10 +30,16 @@ def import_iso(fname):
 
 def integrate(orbits,pot):
     ts = pot[0]._orb.t
-    truth = orbits[:2]
-    deflect = orbits[:2]
+    truth = orbits[:]
+    deflect = orbits[:]
     truth.integrate(ts,pot=MWPotential2014, method="dop853_c")
-    deflect.integrate(ts,pot=MWPotential2014 + pot, method="dop853_c")
+    for i in range(math.ceil(len(deflect)/200)):
+        end = 200*(i+1)
+        if end > len(deflect):
+            end = len(deflect)
+        deflect[200*i,end].integrate(ts,pot=MWPotential2014 + pot, method="dop853_c")
+        with open(f"temp_orbits_{i}.pickle","wb") as file:
+            pickle.dump(deflect,file)
     return truth, deflect
 
 def main():
