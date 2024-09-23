@@ -1,6 +1,7 @@
 import pickle
 import argparse
 import numpy
+import math
 import os
 from galpy.potential import MWPotential2014
 from galpy.orbit import Orbit
