@@ -32,6 +32,7 @@ def fetch_orbit_data(input,filename):
     return 0
 
 def compile():
+	res = None
 	for filename in os.listdir():
 		if "wipmom" in filename:
 			with open(filename, "rb") as file:
