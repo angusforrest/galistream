@@ -41,7 +41,7 @@ def compile():
 				else:
 					res = numpy.concatenate((res, pickle.load(file)),1)
 	with open("momentum.pickle","wb") as file:
-		picke.dump(res,file)
+		pickle.dump(res,file)
 		
 
 def main():
