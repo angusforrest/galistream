@@ -3,6 +3,7 @@ import argparse
 import numpy
 import math
 import os
+import copy
 from galpy.potential import MWPotential2014
 from galpy.orbit import Orbit
 from astropy import units as u
@@ -32,9 +33,9 @@ def import_iso(fname):
 def integrate(orbits,pot):
     ts = pot[0]._orb.t
     truth = orbits[:]
-    deflect = orbits[:]
+    deflect = orbits[:100]
     truth.integrate(ts,pot=MWPotential2014, method="dop853_c")
-    for i in range(math.ceil(len(deflect)/200)):
+    for i in range(math.ceil(len(deflect)/20)):
         end = 200*(i+1)
         if end > len(deflect):
             end = len(deflect)
@@ -42,9 +43,10 @@ def integrate(orbits,pot):
             with open(f"temp_orbits_{i}.pickle","rb") as file:
                 deflect = pickle.load(file)
         else:
-            deflect[200*i:end].integrate(ts,pot=MWPotential2014 + pot, method="dop853_c")
+            deflect[20*i:end].integrate(ts,pot=MWPotential2014 + pot, method="dop853_c")
+            print(deflect[20*:end].x(t=ts))
             with open(f"temp_orbits_{i}.pickle","wb") as file:
-                save = deflect[:]
+                save = copy.deepcopy(deflect)
                 pickle.dump(save,file)
     return truth, deflect
 
