@@ -25,16 +25,29 @@ def split_orbits(orbits):
 def fetch_orbit_data(input,filename):
     ts = input.t
     print("fetch branch")
-    res = [input.E(t=ts),input.Lz(t=ts)]
+    res = numpy.array([input.E(t=ts),input.Lz(t=ts)])
     print(res)
-    with open(f"done_{os.path.basename(filename)}","wb") as file:
+    with open(f"wipmom_{os.path.basename(filename)}","wb") as file:
         pickle.dump(res,file)
     return 0
+
+def compile():
+	for filename in os.listdir():
+		if "wipmom" in filename:
+			with open(filename, "rb") as file:
+				if res = None:
+					res = pickle.load(file)
+				else:
+					res = numpy.concatenate((res, pickle.load(file)),1)
+	with open("momentum.pickle","wb") as file:
+		picke.dump(res,file)
+		
 
 def main():
 	parser = argparse.ArgumentParser("momentum")
 
 	parser.add_argument("-s","--split",default=False)
+	parser.add_argument("-c","--compile",default=False)
 	parser.add_argument("filename")
 	args =parser.parse_args()
 	if os.path.exists(args.filename):
@@ -46,6 +59,9 @@ def main():
 	if bool(args.split) == True:
 		print("split")
 		split_orbits(data)
+	else if bool(args.compile) == True:
+		print("compile")
+		compile()
 	else:
 		fetch_orbit_data(data,args.filename)
 	return 0
