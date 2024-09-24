@@ -17,8 +17,8 @@ def bootstrap(data):
     sigmas = []
     for j in range(1000):
         n_resamples = 10000
-        bootstrap = [data[:,numpy.random.randint(len(data.shape[1]))] for n in range(n_resamples)]
-        sigmas.append(loess_curve(data))
+        boot = numpy.array([data[:,numpy.random.randint(data.shape[1])] for n in range(n_resamples)])
+        sigmas.append(loess_curve(boot[0,:],boot[1,:]))
     per16 = numpy.percentile(sigmas, 16.0)
     per84 = numpy.percentile(sigmas, 84.0)
     return (per16,per84)
