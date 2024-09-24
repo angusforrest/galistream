@@ -23,8 +23,9 @@ def split_orbits(orbits):
 			pickle.dump(x,file)
 
 def fetch_orbit_data(input,filename):
-    i = numpy.arange(0,len(input.t),40)
-    ts = input.t[i]
+    #i = numpy.arange(0,len(input.t),40)
+    #ts = input.t[i]
+    ts = input.t
     print("fetch branch")
     res = numpy.array([input.E(t=ts),input.Lz(t=ts)])
     print(res)
