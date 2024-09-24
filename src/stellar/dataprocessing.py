@@ -62,8 +62,8 @@ def main():
 	else:
 		print("file provided does not exist")
 		return 0
-    data_process(data)
-    return 0
+	data_process(data)
+	return 0
 
 if __name__ == '__main__':
     main()
