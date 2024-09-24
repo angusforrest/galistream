@@ -23,9 +23,8 @@ def split_orbits(orbits):
 			pickle.dump(x,file)
 
 def fetch_orbit_data(input,filename):
-    #i = numpy.arange(0,len(input.t),40)
-    #ts = input.t[i]
-    ts = input.t
+    i = numpy.arange(0,len(input.t),40)
+    ts = input.t[i]
     print("fetch branch")
     energy = input.E(ts)
     momentum = input.Lz(ts)
