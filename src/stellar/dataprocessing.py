@@ -6,7 +6,7 @@ import os
 from loess import loess_1d
 
 def loess_curve(xs,ys):
-    l_xs, l_ys, out = loess_1d(data[0,:,i],data[1,:,i], xnew=None, degree=1,frac=0.5,npoints=None,rotate=False,sigy=None)
+    l_xs, l_ys, out = loess_1d(xs,ys, xnew=None, degree=1,frac=0.5,npoints=None,rotate=False,sigy=None)
     new_data = numpy.array([(x,y-z) for x,y,z in zip(xs,ys,l_ys)])
     per16 = numpy.percentile(new_data[1,:],16.0)
     per84 = numpy.percentile(new_data[1,:],84.0)
