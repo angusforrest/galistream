@@ -3,7 +3,7 @@ import numpy
 import matplotlib.pyplot as plt
 import pickle
 import os
-from loess import loess_1d
+from loess.loess_1d import loess_1d
 
 def loess_curve(xs,ys):
     l_xs, l_ys, out = loess_1d(xs,ys, xnew=None, degree=1,frac=0.5,npoints=None,rotate=False,sigy=None)
