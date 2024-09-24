@@ -6,7 +6,6 @@ import os
 from loess.loess_1d import loess_1d
 
 def loess_curve(xs,ys):
-    print("loess_curve")
     l_xs, l_ys, out = loess_1d(xs,ys, xnew=None, degree=1,frac=0.5,npoints=None,rotate=False,sigy=None)
     new_data = numpy.array([(x,y-z) for x,y,z in zip(xs,ys,l_ys)])
     per16 = numpy.percentile(new_data[1,:],16.0)
@@ -16,7 +15,7 @@ def loess_curve(xs,ys):
 
 def bootstrap(data):
     sigmas = []
-    for j in range(1000):
+    for j in range(50):
         n_resamples = 10000
         boot = numpy.array([data[:,numpy.random.randint(data.shape[1])] for n in range(n_resamples)])
         sigmas.append(loess_curve(boot[0,:],boot[1,:]))
