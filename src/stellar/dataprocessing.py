@@ -39,6 +39,7 @@ def data_process(data):
     for i in range(data.shape[2]):
         sigma = loess_curve(data[0,:,i],data[1,:,i])
         x1,x2 = bootstrap(data[:,:,i])
+        print(i,ts[i],sigma,x1,x2)
         output.append(sigma)
         y1.append(x1)
         y2.append(x2)
