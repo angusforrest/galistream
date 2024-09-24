@@ -28,7 +28,7 @@ def fetch_orbit_data(input,filename):
     print("fetch branch")
     energy = input.E(ts)
     momentum = input.Lz(ts)
-    res = np.array([energy,momentum])
+    res = numpy.array([energy,momentum])
     print(res)
     with open(f"wipmom_{os.path.basename(filename)}","wb") as file:
         pickle.dump(res,file)
