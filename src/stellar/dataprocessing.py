@@ -23,13 +23,6 @@ def bootstrap(data):
     per84 = numpy.percentile(sigmas, 84.0)
     return (per16,per84)
 
-class Output:
-    def __init__(self, data,y1,y2,ts):
-        self.data = data
-        self.y1 = y1
-        self.y2 = y2
-        self.ts = ts
-    
 
 def data_process(data):
     output = []
@@ -44,7 +37,7 @@ def data_process(data):
         output.append(sigma)
         #y1.append(x1)
         #y2.append(x2)
-    savedata = Output(output,y1,y2,ts)
+    savedata = (output,y1,y2,ts)
     with open("results.pickle","wb") as file:
         pickle.dump(savedata,file)
     ax = plt.axes()
@@ -54,7 +47,7 @@ def data_process(data):
     plt.savefig("sigma_graph.png",dpi=600)
     plt.close()
     ax = plt.axes()
-    ax.plot(ts,np.array(output)**2)
+    ax.plot(ts,numpy.array(output)**2)
     ax.set_title(r"$t$ versus $\sigma=\Delta E$")
     plt.savefig("sigma2_graph.png",dpi=600)
     plt.close()
