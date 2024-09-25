@@ -35,9 +35,10 @@ def data_process(data):
     output = []
     y1 = []
     y2 = []
-    ts = numpy.linspace(0,1,data.shape[2])
+    ts = numpy.arange(0,2001,40) * (1/2001)
     for i in range(data.shape[2]):
-        sigma = loess_curve(data[0,:,i],data[1,:,i])
+        # input1 = Lz input2 = E
+        sigma = loess_curve(data[1,:,i],data[0,:,i])
         #x1,x2 = bootstrap(data[:,:,i])
         #print(i,ts[i],sigma,x1,x2)
         output.append(sigma)
@@ -49,8 +50,15 @@ def data_process(data):
     ax = plt.axes()
     #ax.fill_between(ts,y1,y2)
     ax.plot(ts,output)
-    ax.set_title(r"$t$ versus $\sigma$")
-    plt.savefig("graph.png",dpi=600)
+    ax.set_title(r"$t$ versus $\sigma=\Delta E$")
+    plt.savefig("sigma_graph.png",dpi=600)
+    plt.close()
+    ax = plt.axes()
+    ax.plot(ts,np.array(output)**2)
+    ax.set_title(r"$t$ versus $\sigma=\Delta E$")
+    plt.savefig("sigma2_graph.png",dpi=600)
+    plt.close()
+    return 0
 
 
 def main():
