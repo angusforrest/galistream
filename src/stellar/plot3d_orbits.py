@@ -61,12 +61,12 @@ def main():
 		print("split")
 		plot_dist(data)
 	else:
-    	if os.path.exists(args.process):
-    		with open(args.filename, "rb") as file:
-    			ts = pickle.load(file)
-    	else:
-    		print("file provided does not exist")
-    		return 0
+		if os.path.exists(args.process):
+			with open(args.filename, "rb") as file:
+				ts = pickle.load(file)
+		else:
+			print("file provided does not exist")
+			return 0
 		plot_scatters(data,ts)
 	return 0
 
