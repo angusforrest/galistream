@@ -34,7 +34,7 @@ def plot_dist(orbits):
 
 def plot_scatters(orbits,ts):
     for t in ts:
-        plot_orbit(orbits,t)
+        plot_scatter(orbits,t)
 
 def plot_scatter(orbits,t):
     pyplot.ioff()
