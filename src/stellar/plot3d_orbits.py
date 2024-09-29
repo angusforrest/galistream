@@ -30,20 +30,21 @@ def plot_dist(orbits):
 			pickle.dump(x,file)
 	return 0
 
-def plot_scatters(orbits,ts):
+def plot_scatters(orbits,gmc,ts):
     for t in ts:
-        plot_scatter(orbits,t)
+        plot_scatter(orbits,gmc,t)
 
-def plot_scatter(orbits,t):
+def plot_scatter(orbits,gmc,t):
     plt.ioff()
     ax = plt.axes(projection='3d')
     ax.set_xlabel(f"x (kpc)")
     ax.set_ylabel(f"y (kpc)")
+    ax.scatter(gmc.x(t),gmc.y(t),gmc.z(t),s=1)
     ax.scatter(orbits.x(t),orbits.y(t),orbits.z(t),s=1)
     ax.set_xlim(-10,10)
     ax.set_ylim(-10,10)
     ax.set_zlim(-2,2)
-    plt.savefig(f"frame{t}.png",dpi=300)
+    plt.savefig(f"frame{t:05f}.png",dpi=300)
     plt.close()
     
 def main():
@@ -51,6 +52,7 @@ def main():
 
 	parser.add_argument("-s","--split",default=False)
 	parser.add_argument("-p","--process",default=False)
+	parser.add_argument("-g","--gmc",default=False)
 	parser.add_argument("filename")
 	args =parser.parse_args()
 	if os.path.exists(args.filename):
@@ -69,7 +71,13 @@ def main():
 		else:
 			print("file provided does not exist")
 			return 0
-		plot_scatters(data,ts)
+		if os.path.exists(args.gmc):
+			with open(args.gmc, "rb") as file:
+				gmc = pickle.load(file)
+		else:
+			print("file provided does not exist")
+			return 0
+		plot_scatters(data,gmc,ts)
 	return 0
 
 if __name__ == '__main__':
