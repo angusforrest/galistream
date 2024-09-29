@@ -22,7 +22,7 @@ def animate_orbits(orbits):
 				if i == cores - 1:
 					end = gen.size
 				yield zip(numpy.arange(num*i,end,1),gen[num*i:end])
-	for i, x in enumerate(generator_split(np.arange(0,orbits.t,4)):
+	for i, x in enumerate(generator_split(numpy.arange(0,orbits.t,4))):
 		with open(f"temp_orbit{i}.pickle","wb") as file:
 			pickle.dump(x,file)
 	return 0
