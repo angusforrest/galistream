@@ -67,7 +67,7 @@ def main():
 		plot_dist(data)
 	else:
 		if os.path.exists(args.process):
-			with open(args.filename, "rb") as file:
+			with open(args.process, "rb") as file:
 				ts = pickle.load(file)
 		else:
 			print("file provided does not exist")
