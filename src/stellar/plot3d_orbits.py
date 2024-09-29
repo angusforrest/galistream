@@ -7,7 +7,7 @@ import os
 from multiprocessing.pool import Pool
 from functools import partial
 
-def animate_orbits(orbits):
+def plot_dist(orbits):
 	if not ("OMP_NUM_THREADS" in os.environ):
 		print("OMP_NUM_THREADS environmental variable not set")
 		return 0 
