@@ -37,13 +37,12 @@ def plot_scatters(orbits,ts):
 def plot_scatter(orbits,t):
     plt.ioff()
     ax = plt.axes()
-    ax.set_aspect('equal', adjustable='box')
+    ax.set_xlabel(f"x (kpc)")
+    ax.set_ylabel(f"y (kpc)")
+    ax.scatter(orbits.x(t),orbits.y(t),orbits.z(t),s=1)
     ax.set_xlim(-10,10)
     ax.set_ylim(-10,10)
     ax.set_zlim(-2,2)
-    ax.set_xlabel(f"x (kpc)")
-    ax.set_ylabel(f"y (kpc)")
-    ax.scatter3d(orbits.x(t),orbits.y(t),orbits.z(t),s=1)
     plt.savefig(f"frame{t}.png",dpi=300)
     plt.close()
     
