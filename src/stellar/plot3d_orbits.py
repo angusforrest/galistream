@@ -8,6 +8,7 @@ from multiprocessing.pool import Pool
 from functools import partial
 
 def plot_dist(orbits):
+	ts = numpy.arange(0,orbits.t,4)
 	if not ("OMP_NUM_THREADS" in os.environ):
 		print("OMP_NUM_THREADS environmental variable not set")
 		return 0 
@@ -17,12 +18,16 @@ def plot_dist(orbits):
 			 yield gen
 		else:
 			num = math.ceil(gen.size / (cores))
+			finish = 0
 			for i in range(cores):
+				if finish == 1:
+					break
 				end = num*(i+1)
-				if i == cores - 1:
-					end = gen.size
-				yield zip(numpy.arange(num*i,end,1),gen[num*i:end])
-	for i, x in enumerate(generator_split(numpy.arange(0,orbits.t,4))):
+				if end > gen.size:
+					yield gen[num*i:end.size]
+					finish = 1
+				yield gen[num*i:end]
+	for i, x in enumerate(generator_split(ts)):
 		with open(f"temp_orbit{i}.pickle","wb") as file:
 			pickle.dump(x,file)
 	return 0
