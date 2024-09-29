@@ -24,7 +24,7 @@ def plot_dist(orbits):
 					break
 				end = num*(i+1)
 				if end > gen.size:
-					yield gen[num*i:end.size]
+					yield gen[num*i:gen.size]
 					finish = 1
 				yield gen[num*i:end]
 	for i, x in enumerate(generator_split(ts)):
