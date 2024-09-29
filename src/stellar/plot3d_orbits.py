@@ -8,7 +8,7 @@ from multiprocessing.pool import Pool
 from functools import partial
 
 def plot_dist(orbits):
-	ts = numpy.arange(0,orbits.t,4)
+	ts = orbits.t[numpy.arange(0,len(orbits.t),4)]
 	if not ("OMP_NUM_THREADS" in os.environ):
 		print("OMP_NUM_THREADS environmental variable not set")
 		return 0 
