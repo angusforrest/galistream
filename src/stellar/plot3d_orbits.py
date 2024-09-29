@@ -4,8 +4,6 @@ import math
 import matplotlib.pyplot as plt
 import pickle
 import os
-from multiprocessing.pool import Pool
-from functools import partial
 
 def plot_dist(orbits):
 	ts = numpy.array(orbits.t[numpy.arange(0,len(orbits.t),4)])
@@ -37,7 +35,7 @@ def plot_scatters(orbits,ts):
         plot_scatter(orbits,t)
 
 def plot_scatter(orbits,t):
-    pyplot.ioff()
+    plt.ioff()
     ax = plt.axes()
     ax.set_aspect('equal', adjustable='box')
     ax.set_xlim(-10,10)
