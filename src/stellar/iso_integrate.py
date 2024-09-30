@@ -33,7 +33,7 @@ def import_iso(fname):
 def integrate(orbits,pot):
     ts = pot[0]._orb.t
     truth = orbits[:]
-    deflect = orbits[:100]
+    deflect = orbits[:]
     truth.integrate(ts,pot=MWPotential2014, method="dop853_c",progressbar=False)
     deflect.integrate(ts,pot=MWPotential2014 + pot, method="dop853_c",progressbar=False)
     return truth, deflect
