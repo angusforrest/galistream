@@ -54,8 +54,8 @@ def main():
         if not os.path.isdir(args.output):
             os.makedirs(args.output)
         os.chdir(args.output)
-
-    orbits, potential = create_potentials(args.progress,float(args.time),float(args.lifetime),int(args.num),float(args.rin),float(args.rout))
+    
+    orbits, potential = create_potentials(args.progress,args.time,args.lifetime,int(args.num),args.rin,args.rout)
     with open("gmc_orbits.pickle","wb") as file:
         pickle.dump(orbits,file)
     with open("gmc_potential.pickle","wb") as file:
