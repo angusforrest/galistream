@@ -13,13 +13,14 @@ def split_orbits(orbits):
 			 yield gen
 		else:
 			num = math.ceil(gen.size / (cores))
+			print(num)
 			for i in range(cores):
 				end = num*(i+1)
 				if i == cores - 1:
 					end = gen.size
 				yield gen[num*i:end]
 	for i, x in enumerate(generator_split(orbits)):
-		with open(f"orbit{i}.pickle","wb") as file:
+		with open(f"orbit{i:03d}.pickle","wb") as file:
 			pickle.dump(x,file)
 
 def fetch_orbit_data(input,filename):
