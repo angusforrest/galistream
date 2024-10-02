@@ -30,9 +30,9 @@ def plot_dist(orbits):
 			pickle.dump(x,file)
 	return 0
 
-def plot_scatters(orbits,ts):
+def plot_scatters(orbits,gmc,ts):
     for t in ts:
-        plot_scatter(orbits,t)
+        plot_scatter(orbits,gmc,t)
 
 def plot_scatter(orbits,gmc,t):
     plt.ioff()
