@@ -26,7 +26,7 @@ def plot_dist(orbits):
 					finish = 1
 				yield gen[num*i:end]
 	for i, x in enumerate(generator_split(ts)):
-		with open(f"temp_orbit{i}.pickle","wb") as file:
+		with open(f"temp_orbit{i:03d}.pickle","wb") as file:
 			pickle.dump(x,file)
 	return 0
 
