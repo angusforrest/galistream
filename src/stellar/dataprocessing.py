@@ -11,44 +11,48 @@ def loess_curve(xs,ys):
     per16 = numpy.percentile(new_data[:,1],16.0)
     per84 = numpy.percentile(new_data[:,1],84.0)
     sigma = (per84-per16)/2
-    return sigma
+    lower, upper = bootstrap(new_data)
+    return (l_ys,sigma,lower,upper)
 
 def bootstrap(data):
     sigmas = []
     for j in range(50):
         n_resamples = 10000
         boot = numpy.array([data[:,numpy.random.randint(data.shape[1])] for n in range(n_resamples)])
-        sigmas.append(loess_curve(boot[0,:],boot[1,:]))
-    per16 = numpy.percentile(sigmas, 16.0)
-    per84 = numpy.percentile(sigmas, 84.0)
-    return (per16,per84)
+        per16 = numpy.percentile(new_data[:,1],16.0)
+        per84 = numpy.percentile(new_data[:,1],84.0)
+        sigmas.append((per84-per16)/2)
+    lower = numpy.percentile(sigmas, 16.0)
+    upper = numpy.percentile(sigmas, 84.0)
+    return (lower,upper)
 
 
 def data_process(data):
     output = []
+    loess = []
     y1 = []
     y2 = []
     ts = numpy.arange(0,2001,40) * (1/2001)
     for i in range(data.shape[2]):
         # input1 = Lz input2 = E
-        sigma = loess_curve(data[1,:,i],data[0,:,i])
-        #x1,x2 = bootstrap(data[:,:,i])
-        #print(i,ts[i],sigma,x1,x2)
+        l_ys,sigma,lower,upper = loess_curve(data[1,:,i],data[0,:,i])
+        loess.append(l_ys)
         output.append(sigma)
-        #y1.append(x1)
-        #y2.append(x2)
-    savedata = (output,y1,y2,ts)
+        y1.append(lower)
+        y2.append(upper)
+    savedata = (loess,output,y1,y2,ts)
     with open("results.pickle","wb") as file:
         pickle.dump(savedata,file)
     ax = plt.axes()
-    #ax.fill_between(ts,y1,y2)
+    ax.fill_between(ts,lower,upper)
     ax.plot(ts,output)
-    ax.set_title(r"$t$ versus $\sigma=\Delta E$")
+    ax.set_title(r"$t$ versus $\sigma^2=\Delta E$")
     plt.savefig("sigma_graph.png",dpi=600)
     plt.close()
     ax = plt.axes()
-    ax.plot(ts,numpy.array(output)**2)
-    ax.set_title(r"$t$ versus $\sigma=\Delta E$")
+    ax.fill_between(ts,numpy.sqrt(lower),numpy.sqrt(upper))
+    ax.plot(ts,numpy.sqrt(output))
+    ax.set_title(r"$t$ versus $\sigma=\sqrt{\Delta E}$")
     plt.savefig("sigma2_graph.png",dpi=600)
     plt.close()
     return 0
