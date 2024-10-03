@@ -19,8 +19,8 @@ def bootstrap(data):
     for j in range(50):
         n_resamples = 10000
         boot = numpy.array([data[:,numpy.random.randint(data.shape[1])] for n in range(n_resamples)])
-        per16 = numpy.percentile(new_data[:,1],16.0)
-        per84 = numpy.percentile(new_data[:,1],84.0)
+        per16 = numpy.percentile(data[:,1],16.0)
+        per84 = numpy.percentile(data[:,1],84.0)
         sigmas.append((per84-per16)/2)
     lower = numpy.percentile(sigmas, 16.0)
     upper = numpy.percentile(sigmas, 84.0)
