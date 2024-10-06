@@ -28,8 +28,8 @@ def plot(orbits):
         verticalalignment='top', bbox=props)
     # 0 Gyr Colormap GMC Plot
     im = ax[0,1].scatter(orbits.x(0),orbits.y(0),c=orbits.phi(0),cmap="twilight",s=.1)
-    cbar = fig.colorbar(im,ax=ax[0,1])
-    cbar.ax.set_yticklabels([r'-\pi', '0', r'+\pi'])
+    cbar = fig.colorbar(im,ax=ax[0,1],ticks=[-1, 0, 1])
+    cbar.ax.set_yticklabels([r'-180', '0', r'180'])
     ax[0,1].set_xlim(-10,10)
     ax[0,1].set_ylim(-10,10)
     ax[0,1].set_aspect('equal')
@@ -37,8 +37,8 @@ def plot(orbits):
         verticalalignment='top', bbox=props)
     # 1 Gyr Colormap GMC Plot
     im = ax[1,1].scatter(orbits.x(ts[-1]),orbits.y(ts[-1]),c=orbits.phi(0),cmap="twilight",s=.1)
-    cbar = fig.colorbar(im,ax=ax[1,1])
-    cbar.ax.set_yticklabels([r'-\pi', '0', r'+\pi'])
+    cbar = fig.colorbar(im,ax=ax[1,1],ticks=[-1, 0, 1])
+    cbar.ax.set_yticklabels([r'-180', '0', r'180'])
     ax[1,1].set_xlim(-10,10)
     ax[1,1].set_ylim(-10,10)
     ax[1,1].set_xlabel(f"x (kpc)")
