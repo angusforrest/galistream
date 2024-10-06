@@ -7,6 +7,7 @@ import pickle
 def plot(orbits):
     ts = orbits.t
     plt.ioff()
+    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
     fig,ax = plt.subplots(2,2,sharex=True,sharey=True)
     # 0 Gyr GMC Plot
     ax[0,0].scatter(orbits.x(0),orbits.y(0),s=.1)
