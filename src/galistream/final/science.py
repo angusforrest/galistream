@@ -37,49 +37,49 @@ def main():
     parser.add_argument("d5000_1")
     args = parser.parse_args()
     if os.path.exists(args.d1250_0):
-        with open(args.gmc_orbits,"rb") as file:
+        with open(args.d1250_0,"rb") as file:
             d1250_0 = pickle.load(file)
     else:
         print("file provided does not exist")
         return 0
     if os.path.exists(args.d1250_1):
-        with open(args.gmc_orbits,"rb") as file:
+        with open(args.d1250_1,"rb") as file:
             d1250_1 = pickle.load(file)
     else:
         print("file provided does not exist")
         return 0
     if os.path.exists(args.d1250_2):
-        with open(args.gmc_orbits,"rb") as file:
+        with open(args.d1250_2,"rb") as file:
             d1250_2 = pickle.load(file)
     else:
         print("file provided does not exist")
         return 0
     if os.path.exists(args.d2500_0):
-        with open(args.gmc_orbits,"rb") as file:
+        with open(args.d2500_0,"rb") as file:
             d2500_0 = pickle.load(file)
     else:
         print("file provided does not exist")
         return 0
     if os.path.exists(args.d2500_1):
-        with open(args.gmc_orbits,"rb") as file:
+        with open(args.d2500_1,"rb") as file:
             d2500_1 = pickle.load(file)
     else:
         print("file provided does not exist")
         return 0
     if os.path.exists(args.d2500_2):
-        with open(args.gmc_orbits,"rb") as file:
+        with open(args.d2500_2,"rb") as file:
             d2500_2 = pickle.load(file)
     else:
         print("file provided does not exist")
         return 0
     if os.path.exists(args.d5000_0):
-        with open(args.gmc_orbits,"rb") as file:
+        with open(args.d5000_0,"rb") as file:
             d5000_0 = pickle.load(file)
     else:
         print("file provided does not exist")
         return 0
     if os.path.exists(args.d5000_1):
-        with open(args.gmc_orbits,"rb") as file:
+        with open(args.d5000_1,"rb") as file:
             d5000_1 = pickle.load(file)
     else:
         print("file provided does not exist")
