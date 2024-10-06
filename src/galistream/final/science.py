@@ -84,7 +84,7 @@ def main():
     else:
         print("file provided does not exist")
         return 0
-    plot(orbits)
+    plot(d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1)
 
 if __name__ == "__main__":
     main()
