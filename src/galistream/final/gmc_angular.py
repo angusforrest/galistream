@@ -1,5 +1,5 @@
 import argparse
-import matplotlib
+import matplotlib.pyplot as plt
 import numpy
 import os
 import pickle
