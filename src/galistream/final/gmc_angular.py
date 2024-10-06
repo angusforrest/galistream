@@ -45,6 +45,7 @@ def plot(orbits):
 def main():
     parser = argparse.ArgumentParser("plot_gmc_angular")
     parser.add_argument("gmc_orbits")
+    args = parser.parse_args()
     if os.path.exists(args.gmc_orbits):
         with open(args.gmc_orbits,"rb") as file:
             orbits = pickle.load(file)
