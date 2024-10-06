@@ -43,7 +43,7 @@ def plot(orbits):
 
 
 def main():
-    parser = argparse.ArugmentParser("plot_gmc_angular")
+    parser = argparse.ArgumentParser("plot_gmc_angular")
     parser.add_argument("gmc_orbits")
     if os.path.exists(args.gmc_orbits):
         with open(args.gmc_orbits,"rb") as file:
