@@ -7,7 +7,7 @@ import pickle
 def plot(orbits):
     ts = orbits.t
     plt.ioff()
-    props = dict(boxstyle='round', facecolor='wheat', alpha=0.5)
+    props = dict(boxstyle='round', facecolor='wheat', alpha=1)
     fig,ax = plt.subplots(2,2,sharex=True,sharey=True)
     # 0 Gyr GMC Plot
     ax[0,0].scatter(orbits.x(0),orbits.y(0),s=.1)
@@ -15,15 +15,16 @@ def plot(orbits):
     ax[0,0].set_ylim(-10,10)
     ax[0,0].set_ylabel(f"y (kpc)")
     ax[0,0].set_aspect('equal')
-    ax[0,0].text(0.05, 0.95, r't = 0 Gyr', transform=ax[0,0].transAxes, fontsize=14,
+    ax[0,0].text(0.05, 0.95, r't = 0 Gyr', transform=ax[0,0].transAxes, fontsize=6,
         verticalalignment='top', bbox=props)
     # 1 Gyr GMC Plot
     ax[1,0].scatter(orbits.x(ts[-1]),orbits.y(ts[-1]),s=.1)
     ax[1,0].set_xlim(-10,10)
     ax[1,0].set_ylim(-10,10)
     ax[1,0].set_ylabel(f"y (kpc)")
+    ax[1,0].set_xlabel(f"x (kpc)")
     ax[1,0].set_aspect('equal')
-    ax[1,0].text(0.05, 0.95, r't = 1 Gyr', transform=ax[1,0].transAxes, fontsize=14,
+    ax[1,0].text(0.05, 0.95, r't = 1 Gyr', transform=ax[1,0].transAxes, fontsize=6,
         verticalalignment='top', bbox=props)
     # 0 Gyr Colormap GMC Plot
     im = ax[0,1].scatter(orbits.x(0),orbits.y(0),c=orbits.phi(0),cmap="twilight",s=.1)
@@ -31,9 +32,8 @@ def plot(orbits):
     cbar.ax.set_yticklabels([r'-\pi', '0', r'+\pi'])
     ax[0,1].set_xlim(-10,10)
     ax[0,1].set_ylim(-10,10)
-    ax[0,1].set_xlabel(f"x (kpc)")
     ax[0,1].set_aspect('equal')
-    ax[0,1].text(0.05, 0.95, r't = 0 Gyr', transform=ax[0,1].transAxes, fontsize=14,
+    ax[0,1].text(0.05, 0.95, r't = 0 Gyr', transform=ax[0,1].transAxes, fontsize=6,
         verticalalignment='top', bbox=props)
     # 1 Gyr Colormap GMC Plot
     im = ax[1,1].scatter(orbits.x(ts[-1]),orbits.y(ts[-1]),c=orbits.phi(0),cmap="twilight",s=.1)
@@ -43,7 +43,7 @@ def plot(orbits):
     ax[1,1].set_ylim(-10,10)
     ax[1,1].set_xlabel(f"x (kpc)")
     ax[1,1].set_aspect('equal')
-    ax[1,1].text(0.05, 0.95, r't = 1 Gyr', transform=ax[1,1].transAxes, fontsize=14,
+    ax[1,1].text(0.05, 0.95, r't = 1 Gyr', transform=ax[1,1].transAxes, fontsize=6,
         verticalalignment='top', bbox=props)
     plt.savefig("figure_gmc_angular.eps",dpi=600)
     plt.savefig("figure_gmc_angular.png",dpi=600)
