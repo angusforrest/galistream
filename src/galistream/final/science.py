@@ -5,6 +5,7 @@ import os
 import pickle
 
 def plot(d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
+    plt.rcParams['text.usetex'] = True
     plt.ioff()
     fig,ax = plt.subplots()
     ts = d1250_0[-1]
@@ -16,7 +17,7 @@ def plot(d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     ax.plot(ts,d2500_2[1],c="green",label="2500")
     ax.plot(ts,d5000_0[1],c="red",label="5000")
     ax.plot(ts,d5000_1[1],c="red",label="5000")
-    ax.legend(loc="upper right")
+    ax.legend(loc="upper left")
     ax.set_xlabel("time (Gyr)")
     ax.set_ylabel(r"\Delta E = \sigma^2")
     plt.savefig("figure_sigma2.eps",dpi=600)
