@@ -4,6 +4,8 @@
 !README.md
 !src
 !src/*
-!src/stellar/*
+!src/galistream/*
+!src/galistream/plots/*
+!src/galistream/final/*
 !scripts
 !scripts/*
