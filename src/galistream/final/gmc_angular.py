@@ -39,6 +39,7 @@ def plot(orbits):
     ax[1,1].set_xlabel(f"y (kpc)")
     ax[1,1].set_aspect('equal')
     plt.savefig("figure_gmc_angular.eps",dpi=600)
+    plt.savefig("figure_gmc_angular.png",dpi=600)
     plt.close()
 
 
