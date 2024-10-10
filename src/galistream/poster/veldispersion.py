@@ -6,6 +6,8 @@ import pickle
 
 def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     plt.rcParams['text.usetex'] = True
+    plt.rcParams.update({'font.size': 48})
+    plt.rcParams['lines.linewidth'] = 8
     plt.ioff()
     fig,ax = plt.subplots(figsize=(16.5,12.3))
     ts = d1250_0[-1]
@@ -23,6 +25,9 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     ax.spines[['right', 'top']].set_visible(False)
     ax.set_xlabel("time $t$ (Gyr)")
     ax.set_ylabel(r'velocity dispersion $\sigma$ (kms${}^{-1}$)')
+    for axis in ['top','bottom','left','right']:
+        ax.spines[axis].set_linewidth(8)
+    ax.tick_params(width=8)
     plt.savefig("figure_sigma.svg",dpi=600,transparent=True)
     plt.savefig("figure_sigma.png",dpi=600,transparent=True)
     plt.close()
