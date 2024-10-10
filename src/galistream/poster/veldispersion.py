@@ -11,22 +11,33 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     plt.ioff()
     fig,ax = plt.subplots(figsize=(16.5,12.3))
     ts = d1250_0[-1]
-    ax.plot(ts,numpy.sqrt(d0_0[1]),c="orange",label="0")
-    ax.plot(ts,numpy.sqrt(d1250_0[1]),c="blue",label="1250")
-    ax.plot(ts,numpy.sqrt(d1250_1[1]),c="blue")
-    ax.plot(ts,numpy.sqrt(d1250_2[1]),c="blue")
-    ax.plot(ts,numpy.sqrt(d2500_0[1]),c="green",label="2500")
-    ax.plot(ts,numpy.sqrt(d2500_1[1]),c="green")
-    ax.plot(ts,numpy.sqrt(d2500_2[1]),c="green")
-    ax.plot(ts,numpy.sqrt(d5000_0[1]),c="red",label="5000")
-    ax.plot(ts,numpy.sqrt(d5000_1[1]),c="red")
+    COL3 = '#1E9CBF'
+    COL2 = '#41889C'
+    COL1 = '#5D7880'
+    COL0 = '#677376'
+    COLWHITE = '#F7F7F8'
+    COLBLACK = '#001134'
+    ax.plot(ts,numpy.sqrt(d0_0[1]),c=COL0,label="0")
+    ax.plot(ts,numpy.sqrt(d1250_0[1]),c=COL1,label="1250")
+    ax.plot(ts,numpy.sqrt(d1250_1[1]),c=COL1)
+    ax.plot(ts,numpy.sqrt(d1250_2[1]),c=COL1)
+    ax.plot(ts,numpy.sqrt(d2500_0[1]),c=COL2,label="2500")
+    ax.plot(ts,numpy.sqrt(d2500_1[1]),c=COL2)
+    ax.plot(ts,numpy.sqrt(d2500_2[1]),c=COL2)
+    ax.plot(ts,numpy.sqrt(d5000_0[1]),c=COL3,label="5000")
+    ax.plot(ts,numpy.sqrt(d5000_1[1]),c=COL3)
     ax.legend(loc="upper left")
     ax.set_xlim(0,1)
     ax.spines[['right', 'top']].set_visible(False)
     ax.set_xlabel("time $t$ (Gyr)")
     ax.set_ylabel(r'velocity dispersion $\sigma$ (kms${}^{-1}$)')
+    ax.tick_params(axis='x', colors=COLWHITE)
+    ax.tick_params(axis='y', colors=COLWHITE)
+    ax.yaxis.label.set_color(COLWHITE)
+    ax.xaxis.label.set_color(COLWHITE)
     for axis in ['top','bottom','left','right']:
         ax.spines[axis].set_linewidth(8)
+        ax.spines[axis].set_color(COLWHITE)
     ax.tick_params(width=8)
     plt.savefig("figure_sigma.svg",dpi=600,transparent=True)
     plt.savefig("figure_sigma.png",dpi=600,transparent=True)
