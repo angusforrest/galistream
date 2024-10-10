@@ -22,9 +22,9 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     ax.set_xlim(0,1)
     ax.spines[['right', 'top']].set_visible(False)
     ax.set_xlabel("time $t$ (Gyr)")
-    ax.set_ylabel(r'velocity dispersion $\sigma$ $(\text{km}\,\text{s}^-1)$')
-    plt.savefig("figure_sigma.svg",dpi=600,transparency="False")
-    plt.savefig("figure_sigma.png",dpi=600,transparency="False")
+    ax.set_ylabel(r'velocity dispersion $\sigma$ $(\text{kms}^-1)$')
+    plt.savefig("figure_sigma.svg",dpi=600,transparent=True)
+    plt.savefig("figure_sigma.png",dpi=600,transparent=True)
     plt.close()
 
 def main():
