@@ -12,10 +12,11 @@ def plot(data):
     plt.rcParams['lines.linewidth'] = 8
     plt.ioff()
     fig,ax = plt.subplots(figsize=(16.5,12.3))
+    fig.set_tight_layout(True)
     ax.scatter(momentum,energy)
     ax.spines[['right', 'top']].set_visible(False)
-    ax.set_xlabel(r"z axis angular momentum  $L_z$ ()")
-    ax.set_ylabel(r'total energy $E$ ()')
+    ax.set_xlabel(r"z axis angular momentum  $L_z$ (km kpc/s)")
+    ax.set_ylabel(r'total energy $E$ (km${}^2$/s${}^2$)')
     for axis in ['top','bottom','left','right']:
         ax.spines[axis].set_linewidth(8)
     ax.tick_params(width=8)
