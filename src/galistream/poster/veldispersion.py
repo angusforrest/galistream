@@ -17,16 +17,17 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     COL0 = '#BE681E'
     COLWHITE = '#F7F7F8'
     COLBLACK = '#001134'
+    fig.set_tight_layout(True)
     ax.plot(ts,numpy.sqrt(d0_0[1]),c=COL0,label="0",linestyle='dashed')
     ax.plot(ts,numpy.sqrt(d1250_0[1]),c=COL1,label="1250")
     ax.plot(ts,numpy.sqrt(d1250_1[1]),c=COL1)
     ax.plot(ts,numpy.sqrt(d1250_2[1]),c=COL1)
-    ax.plot(ts,numpy.sqrt(d2500_0[1]),c=COL2,label="2500",linestyle='dashed')
-    ax.plot(ts,numpy.sqrt(d2500_1[1]),c=COL2,linestyle='dashed')
-    ax.plot(ts,numpy.sqrt(d2500_2[1]),c=COL2,linestyle='dashed')
+    ax.plot(ts,numpy.sqrt(d2500_0[1]),c=COL2,label="2500")
+    ax.plot(ts,numpy.sqrt(d2500_1[1]),c=COL2)
+    ax.plot(ts,numpy.sqrt(d2500_2[1]),c=COL2)
     ax.plot(ts,numpy.sqrt(d5000_0[1]),c=COL3,label="5000")
     ax.plot(ts,numpy.sqrt(d5000_1[1]),c=COL3)
-    ax.legend(loc="upper left")
+    ax.legend(fontsize=20,loc="upper left")
     ax.set_xlim(0,1)
     ax.spines[['right', 'top']].set_visible(False)
     ax.set_xlabel("time $t$ (Gyr)")
