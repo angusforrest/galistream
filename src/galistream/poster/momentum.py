@@ -7,10 +7,10 @@ import pickle
 def plot(data):
     energy = data[0,:,44]
     momentum = data[1,:,44]
-    COL3 = '#1E9CBF'
-    COL2 = '#1EBF74'
-    COL1 = '#BEA61E'
-    COL0 = '#BE681E'
+    COL3 = '#FFBA08'
+    COL2 = '#F48C06'
+    COL1 = '#DC2F02'
+    COL0 = '#9D0208'
     COLWHITE = '#F7F7F8'
     COLBLACK = '#001134'
     plt.rcParams['text.usetex'] = True
