@@ -7,34 +7,34 @@ import os
 
 def plot_scatter(orbits,gmc):
 	ts = numpy.array(orbits.t[numpy.arange(0,len(orbits.t),4)])
-    COL3 = '#1E9CBF'
-    COL2 = '#1EBF74'
-    COL1 = '#BEA61E'
-    COL0 = '#BE681E'
-    COLWHITE = '#F7F7F8'
-    COLBLACK = '#001134'
-    plt.ioff()
-    fig = plt.figure(figsize=(15.6,25.2))
-    ax = fig.add_subplot(1, 2, 1, projection='3d',computed_zorder=False)
-    ax.grid(False)
-    ax.set_xticks([])
+	COL3 = '#1E9CBF'
+	COL2 = '#1EBF74'
+	COL1 = '#BEA61E'
+	COL0 = '#BE681E'
+	COLWHITE = '#F7F7F8'
+	COLBLACK = '#001134'
+	plt.ioff()
+	fig = plt.figure(figsize=(15.6,25.2))
+	ax = fig.add_subplot(1, 2, 1, projection='3d',computed_zorder=False)
+	ax.grid(False)
+	ax.set_xticks([])
 	ax.set_yticks([])
 	ax.set_zticks([])
-    ax.set_xlabel(f"x (kpc)")
-    ax.set_ylabel(f"y (kpc)")
-    t = ts[320]
-    iso = numpy.array([orbits.x(t),orbits.y(t),orbits.z(t)])
-    select = orbits.z(t) > 0
-    ax.scatter(orbits.x(t)[select],orbits.y(t)[select],orbits.z(t)[select],s=1,zorder=1,color='#aaa')
-    ax.scatter(gmc.x(t),gmc.y(t),gmc.z(t),zorder=0,s=1,color='#fff')
-    ax.scatter(orbits.x(t)[numpy.logical_not(select)],orbits.y(t)[numpy.logical_not(select)],orbits.z(t)[numpy.logical_not(select)],s=1,zorder=-1,color='#aaa')
-    ax.set_xlim(-10,10)
-    ax.set_ylim(-10,10)
-    ax.set_zlim(-1,1)
-    plt.savefig("spatial_map.png",dpi=600,transparent=True)
-    plt.savefig("spatial_map.svg",dpi=600,transparent=True)
-    plt.close()
-    
+	ax.set_xlabel(f"x (kpc)")
+	ax.set_ylabel(f"y (kpc)")
+	t = ts[320]
+	iso = numpy.array([orbits.x(t),orbits.y(t),orbits.z(t)])
+	select = orbits.z(t) > 0
+	ax.scatter(orbits.x(t)[select],orbits.y(t)[select],orbits.z(t)[select],s=1,zorder=1,color='#aaa')
+	ax.scatter(gmc.x(t),gmc.y(t),gmc.z(t),zorder=0,s=1,color='#fff')
+	ax.scatter(orbits.x(t)[numpy.logical_not(select)],orbits.y(t)[numpy.logical_not(select)],orbits.z(t)[numpy.logical_not(select)],s=1,zorder=-1,color='#aaa')
+	ax.set_xlim(-10,10)
+	ax.set_ylim(-10,10)
+	ax.set_zlim(-1,1)
+	plt.savefig("spatial_map.png",dpi=600,transparent=True)
+	plt.savefig("spatial_map.svg",dpi=600,transparent=True)
+	plt.close()
+
 def main():
 	parser = argparse.ArgumentParser("3d_plot")
 	parser.add_argument("-g","--gmc",default=False)
