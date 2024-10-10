@@ -7,10 +7,10 @@ import os
 
 def plot_scatter(orbits,gmc,frame):
 	ts = numpy.array(orbits.t[numpy.arange(0,len(orbits.t),4)])
-    COL3 = '#FFBA08'
-    COL2 = '#F48C06'
-    COL1 = '#DC2F02'
-    COL0 = '#9D0208'
+	COL3 = '#FFBA08'
+	COL2 = '#F48C06'
+	COL1 = '#DC2F02'
+	COL0 = '#9D0208'
 	COLWHITE = '#F7F7F8'
 	COLBLACK = '#001134'
 	plt.ioff()
