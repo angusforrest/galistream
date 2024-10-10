@@ -5,9 +5,8 @@ import os
 import pickle
 
 def plot(data):
-    len(data[0,0,:])
-    energy = data[0,:,400]
-    momentum = data[1,:,400]
+    energy = data[0,:,44]
+    momentum = data[1,:,44]
     plt.rcParams['text.usetex'] = True
     plt.rcParams.update({'font.size': 48})
     plt.rcParams['lines.linewidth'] = 8
