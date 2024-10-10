@@ -12,9 +12,9 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     fig,ax = plt.subplots(figsize=(16.5,12.3))
     ts = d1250_0[-1]
     COL3 = '#1E9CBF'
-    COL2 = '#41889C'
-    COL1 = '#5D7880'
-    COL0 = '#677376'
+    COL2 = '#1EBF9F'
+    COL1 = '#1EBF39'
+    COL0 = '#BEA61E'
     COLWHITE = '#F7F7F8'
     COLBLACK = '#001134'
     ax.plot(ts,numpy.sqrt(d0_0[1]),c=COL0,label="0")
@@ -30,7 +30,7 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     ax.set_xlim(0,1)
     ax.spines[['right', 'top']].set_visible(False)
     ax.set_xlabel("time $t$ (Gyr)")
-    ax.set_ylabel(r'velocity dispersion $\sigma$ (kms${}^{-1}$)')
+    ax.set_ylabel(r'velocity dispersion $\sigma$ (km s${}^{-1}$)')
     ax.tick_params(axis='x', colors=COLWHITE)
     ax.tick_params(axis='y', colors=COLWHITE)
     ax.yaxis.label.set_color(COLWHITE)
