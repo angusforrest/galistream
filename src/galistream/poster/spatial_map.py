@@ -14,7 +14,7 @@ def plot_scatter(orbits,gmc,frame):
 	COLWHITE = '#F7F7F8'
 	COLBLACK = '#001134'
 	plt.ioff()
-	fig,ax = plt.axes(projection='3d',computed_zorder=False)
+	ax = plt.axes(projection='3d',computed_zorder=False)
 	ax.grid(False)
 	ax.set_xticks([])
 	ax.set_yticks([])
