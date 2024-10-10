@@ -12,18 +12,18 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     fig,ax = plt.subplots(figsize=(16.5,12.3))
     ts = d1250_0[-1]
     COL3 = '#1E9CBF'
-    COL2 = '#1EBF9F'
-    COL1 = '#1EBF39'
-    COL0 = '#BEA61E'
+    COL2 = '#1EBF74'
+    COL1 = '#BEA61E'
+    COL0 = '#BE681E'
     COLWHITE = '#F7F7F8'
     COLBLACK = '#001134'
-    ax.plot(ts,numpy.sqrt(d0_0[1]),c=COL0,label="0")
+    ax.plot(ts,numpy.sqrt(d0_0[1]),c=COL0,label="0",linestyle='dashed')
     ax.plot(ts,numpy.sqrt(d1250_0[1]),c=COL1,label="1250")
     ax.plot(ts,numpy.sqrt(d1250_1[1]),c=COL1)
     ax.plot(ts,numpy.sqrt(d1250_2[1]),c=COL1)
-    ax.plot(ts,numpy.sqrt(d2500_0[1]),c=COL2,label="2500")
-    ax.plot(ts,numpy.sqrt(d2500_1[1]),c=COL2)
-    ax.plot(ts,numpy.sqrt(d2500_2[1]),c=COL2)
+    ax.plot(ts,numpy.sqrt(d2500_0[1]),c=COL2,label="2500",linestyle='dashed')
+    ax.plot(ts,numpy.sqrt(d2500_1[1]),c=COL2,linestyle='dashed')
+    ax.plot(ts,numpy.sqrt(d2500_2[1]),c=COL2,linestyle='dashed')
     ax.plot(ts,numpy.sqrt(d5000_0[1]),c=COL3,label="5000")
     ax.plot(ts,numpy.sqrt(d5000_1[1]),c=COL3)
     ax.legend(loc="upper left")
