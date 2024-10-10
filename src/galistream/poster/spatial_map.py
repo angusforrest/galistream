@@ -6,6 +6,12 @@ import pickle
 import os
 
 def plot_scatter(orbits,gmc):
+    COL3 = '#1E9CBF'
+    COL2 = '#1EBF74'
+    COL1 = '#BEA61E'
+    COL0 = '#BE681E'
+    COLWHITE = '#F7F7F8'
+    COLBLACK = '#001134'
     plt.ioff()
     ax = plt.axes(projection='3d',computed_zorder=False,figsize=(12.56,29.7))
     ax.grid(False)
