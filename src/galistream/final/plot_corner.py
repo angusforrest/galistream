@@ -13,7 +13,7 @@ def plot(data,res):
     energy = data[0,:,-1]
     momentum = data[1,:,-1]
     samples = numpy.array([(x,y-z) for x,y,z in zip(momentum,energy,l_ys)])
-    figure = corner.corner(samples,labels=[r"$L_z$",r"$\Delta E$"],quantiles=[0.16,0.5,0.84], show_titles=True,title_kwargs={"fontsize": 12}) 
+    figure = corner.corner(samples,labels=[r"$L_z$",r"$E_r = E-R$"],quantiles=[0.16,0.5,0.84], show_titles=True,title_kwargs={"fontsize": 12}) 
     plt.savefig("figure_corner.eps",dpi=600)
     plt.savefig("figure_corner.png",dpi=600)
     plt.close()
