@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy
 import os
 import pickle
-import corner
+from corner import corner
 
 def plot(data,res):
     plt.rcParams['text.usetex'] = True
