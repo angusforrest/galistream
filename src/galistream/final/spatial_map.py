@@ -21,7 +21,7 @@ def plot_scatter(orbits,gmc):
 	#ax.set_yticks([])
 	#ax.set_zticks([])
 	#ax.set_axis_off()
-	t = ts[0]
+	t = ts[1]
 	iso = numpy.array([orbits.x(t),orbits.y(t),orbits.z(t)])
 	select = orbits.z(t) > 0
 	ax.scatter(orbits.x(t)[select],orbits.y(t)[select],orbits.z(t)[select],s=1,zorder=1,color=COL3,depthshade=False)
@@ -57,7 +57,7 @@ def plot_scatter(orbits,gmc):
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("y (kpc)")
 	ax.set_zlabel("z (kpc)")
-	ax = fig.add_subplot(3, 1, 2, projection='3d',computed_zorder=False)
+	ax = fig.add_subplot(3, 1, 3, projection='3d',computed_zorder=False)
 	ax.grid(False)
 	#ax.set_xticks([])
 	#ax.set_yticks([])
