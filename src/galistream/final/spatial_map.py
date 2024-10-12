@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import pickle
 import os
 
-def plot_scatter(orbits,gmc,frame):
+def plot_scatter(orbits,gmc):
 	ts = numpy.array(orbits.t[numpy.arange(0,len(orbits.t),4)])
 	COL3 = '#FFBA08'
 	COL2 = '#F48C06'
