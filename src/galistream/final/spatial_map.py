@@ -66,8 +66,8 @@ def plot_scatter(orbits,gmc):
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("y (kpc)")
 	ax.set_zlabel("z (kpc)")
-	plt.savefig(f"spatial_map.png",dpi=300)
-	plt.savefig(f"spatial_map.svg",dpi=300)
+	plt.savefig(f"spatial_map.png",dpi=900)
+	plt.savefig(f"spatial_map.svg",dpi=900)
 	plt.close()
 
 def main():
