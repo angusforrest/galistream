@@ -8,7 +8,7 @@ def plot(momentum,result):
     plt.rcParams['text.usetex'] = True
     plt.ioff()
     props = dict(boxstyle='round', facecolor='wheat', alpha=1)
-    fig,ax = plt.subplots(1,2)
+    fig,ax = plt.subplots(2,1)
     ax[0,0].scatter(momentum[1,:,-1],momentum[0,:,-1])
     ax[0,0].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
     ax[0,0].set_ylabel(r"$\Delta E$ (km^2 s${}^{-2}$)")
