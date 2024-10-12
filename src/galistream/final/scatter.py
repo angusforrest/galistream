@@ -8,7 +8,7 @@ def plot(momentum,result):
     plt.rcParams['text.usetex'] = True
     plt.ioff()
     props = dict(boxstyle='round', facecolor='wheat', alpha=1)
-    fig,ax = plt.subplots(1,2,figsize=(20,10)})
+    fig,ax = plt.subplots(1,2,figsize=(20,10))
     fig.set_tight_layout(true)
     lz = momentum[1,:,-1]
     energy = momentum[0,:,-1]
