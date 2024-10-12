@@ -5,6 +5,8 @@ import os
 import pickle
 
 def plot(d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
+    for i,x in enumerate(d5000_0[1]):
+        print(f"{i}:{x}")
     plt.rcParams['text.usetex'] = True
     plt.ioff()
     fig,ax = plt.subplots()
