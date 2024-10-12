@@ -9,7 +9,7 @@ def plot(momentum,result):
     plt.ioff()
     props = dict(boxstyle='round', facecolor='wheat', alpha=1)
     fig,ax = plt.subplots(1,2,figsize=(20,10))
-    fig.set_tight_layout(true)
+    fig.set_tight_layout(True)
     lz = momentum[1,:,-1]
     energy = momentum[0,:,-1]
     ax[0].scatter(lz,energy,s=1)
