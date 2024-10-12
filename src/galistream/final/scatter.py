@@ -13,10 +13,7 @@ def plot(momentum,result):
     fig.set_tight_layout(True)
     lz = momentum[1,:,-1]
     energy = momentum[0,:,-1]
-    points = [[x,y]for x,y in zip(lz,result[0][-1])]
-    print(len(points))
-    return 0
-    ax[0].plot(lz,result[0][-1])
+    ax[0].plot(sorted(lz),result[0][-1][numpy.argsort(lz)])
     ax[0].scatter(lz,energy,s=1)
     ax[0].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
     ax[0].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
