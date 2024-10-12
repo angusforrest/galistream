@@ -21,7 +21,7 @@ def plot_scatter(orbits,gmc):
 	#ax.set_yticks([])
 	#ax.set_zticks([])
 	#ax.set_axis_off()
-	t = ts[1]
+	t = ts[10]
 	iso = numpy.array([orbits.x(t),orbits.y(t),orbits.z(t)])
 	select = orbits.z(t) > 0
 	ax.scatter(orbits.x(t)[select],orbits.y(t)[select],orbits.z(t)[select],s=1,zorder=1,color=COL3,depthshade=False)
