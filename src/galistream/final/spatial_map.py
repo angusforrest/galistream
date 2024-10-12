@@ -14,7 +14,7 @@ def slice_plot_scatter(orbits,gmc):
 	COLWHITE = '#F7F7F8'
 	COLBLACK = '#001134'
 	plt.ioff()
-	fig = plt.figure()
+	fig = plt.figure(figsize=(15,15))
 	ax = fig.add_subplot(2, 2, 1)
 	t = ts[0]
 	select = orbits.z(t) > 0
@@ -34,10 +34,10 @@ def slice_plot_scatter(orbits,gmc):
 	ax.set_ylim(-1,1)
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("z (kpc)")
-	t = ts[20]
-	ax = fig.add_subplot(2, 2, 3, projection='3d',computed_zorder=False)
+	t = ts[125]
+	ax = fig.add_subplot(2, 2, 3)
 	ax.grid(False)
-	t = ts[35]
+	t = ts[250]
 	select = orbits.z(t) > 0
 	ax.scatter(orbits.x(t)[select],orbits.z(t)[select],s=1,color=COL3)
 	ax.scatter(gmc.x(t),gmc.z(t),s=1,color=COL1)
@@ -46,7 +46,7 @@ def slice_plot_scatter(orbits,gmc):
 	ax.set_ylim(-1,1)
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("z (kpc)")
-	ax = fig.add_subplot(2, 2, 4, projection='3d',computed_zorder=False)
+	ax = fig.add_subplot(2, 2, 4)
 	ax.grid(False)
 	t = ts[-1]
 	select = orbits.z(t) > 0
