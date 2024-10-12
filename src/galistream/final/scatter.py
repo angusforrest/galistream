@@ -15,7 +15,7 @@ def plot(momentum,result):
     energy = momentum[0,:,-1]
     points = [[x,y]for x,y in zip(lz,result[0][-1])]
     print(len(points))
-    print(points)
+    return 0
     ax[0].plot(lz,result[0][-1])
     ax[0].scatter(lz,energy,s=1)
     ax[0].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
