@@ -4,9 +4,7 @@ import numpy
 import os
 import pickle
 
-def plot(d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
-    for i,x in enumerate(d5000_0[1]):
-        print(f"{i}:{x}")
+def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     plt.rcParams['text.usetex'] = True
     plt.ioff()
     fig,ax = plt.subplots()
@@ -27,6 +25,18 @@ def plot(d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     plt.close()
     fig,ax = plt.subplots()
     ts = d1250_0[-1]
+    ax.vhline(ts[12],0,numpy.sqrt(d5000_0[1][12])+2)
+    ax.text(ts[12],numpy.sqrt(d5000_0[1][12])+2,"A")
+    ax.vhline(ts[16],0,numpy.sqrt(d5000_0[1][16])+2)
+    ax.text(ts[16],numpy.sqrt(d5000_0[1][16])+2,"B")
+    ax.vhline(ts[20],0,numpy.sqrt(d5000_0[1][20])+2)
+    ax.text(ts[20],numpy.sqrt(d5000_0[1][20])+2,"C")
+    ax.vhline(ts[25],0,numpy.sqrt(d5000_0[1][25])+2)
+    ax.text(ts[25],numpy.sqrt(d5000_0[1][25])+2,"D")
+    ax.vhline(ts[33],0,numpy.sqrt(d5000_0[1][33])+2)
+    ax.text(ts[33],numpy.sqrt(d5000_0[1][33])+2,"E")
+    ax.vhline(ts[39],0,numpy.sqrt(d5000_0[1][39])+2)
+    ax.text(ts[39],numpy.sqrt(d5000_0[1][39])+2,"F")
     ax.plot(ts,numpy.sqrt(d1250_0[1]),c="blue",label="1250")
     ax.plot(ts,numpy.sqrt(d1250_1[1]),c="blue")
     ax.plot(ts,numpy.sqrt(d1250_2[1]),c="blue")
@@ -44,7 +54,7 @@ def plot(d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
 
 def main():
     parser = argparse.ArgumentParser("plot_gmc_angular")
-    #parser.add_argument("d0_0")
+    parser.add_argument("d0_0")
     parser.add_argument("d1250_0")
     parser.add_argument("d1250_1")
     parser.add_argument("d1250_2")
@@ -54,6 +64,12 @@ def main():
     parser.add_argument("d5000_0")
     parser.add_argument("d5000_1")
     args = parser.parse_args()
+    if os.path.exists(args.d0_0):
+        with open(args.d0_0,"rb") as file:
+            d0_0 = pickle.load(file)
+    else:
+        print("file provided does not exist")
+        return 0
     if os.path.exists(args.d1250_0):
         with open(args.d1250_0,"rb") as file:
             d1250_0 = pickle.load(file)
@@ -102,7 +118,7 @@ def main():
     else:
         print("file provided does not exist")
         return 0
-    plot(d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1)
+    plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1)
 
 if __name__ == "__main__":
     main()
