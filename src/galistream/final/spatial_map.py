@@ -14,8 +14,8 @@ def plot_scatter(orbits,gmc):
 	COLWHITE = '#F7F7F8'
 	COLBLACK = '#001134'
 	plt.ioff()
-	fig = plt.figure(figsize=plt.figaspect(3))
-	ax = fig.add_subplot(3, 1, 1, projection='3d',computed_zorder=False)
+	fig = plt.figure(figsize=(30,10))
+	ax = fig.add_subplot(1, 3, 1, projection='3d',computed_zorder=False)
 	ax.grid(False)
 	t = ts[360]
 	iso = numpy.array([orbits.x(t),orbits.y(t),orbits.z(t)])
@@ -32,7 +32,7 @@ def plot_scatter(orbits,gmc):
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("y (kpc)")
 	ax.set_zlabel("z (kpc)")
-	ax = fig.add_subplot(3, 1, 2, projection='3d',computed_zorder=False)
+	ax = fig.add_subplot(1,3, 2, projection='3d',computed_zorder=False)
 	ax.grid(False)
 	t = ts[380]
 	iso = numpy.array([orbits.x(t),orbits.y(t),orbits.z(t)])
@@ -49,7 +49,7 @@ def plot_scatter(orbits,gmc):
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("y (kpc)")
 	ax.set_zlabel("z (kpc)")
-	ax = fig.add_subplot(3, 1, 3, projection='3d',computed_zorder=False)
+	ax = fig.add_subplot(1,3, 3, projection='3d',computed_zorder=False)
 	ax.grid(False)
 	t = ts[400]
 	iso = numpy.array([orbits.x(t),orbits.y(t),orbits.z(t)])
