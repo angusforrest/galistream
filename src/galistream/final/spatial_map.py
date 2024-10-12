@@ -5,6 +5,62 @@ import matplotlib.pyplot as plt
 import pickle
 import os
 
+def slice_plot_scatter(orbits,gmc):
+	ts = numpy.array(orbits.t[numpy.arange(0,len(orbits.t),4)])
+	COL3 = '#FFBA08'
+	COL2 = '#F48C06'
+	COL1 = '#DC2F02'
+	COL0 = '#9D0208'
+	COLWHITE = '#F7F7F8'
+	COLBLACK = '#001134'
+	plt.ioff()
+	fig = plt.figure()
+	ax = fig.add_subplot(2, 2, 1)
+	t = ts[0]
+	select = orbits.z(t) > 0
+	ax.scatter(orbits.x(t)[select],orbits.z(t)[select],s=1,color=COL3)
+	ax.scatter(gmc.x(t),gmc.z(t),s=1,color=COL1)
+	ax.scatter(orbits.x(t)[numpy.logical_not(select)],orbits.z(t)[numpy.logical_not(select)],s=1,color=COL3)
+	ax.set_xlim(-9,9)
+	ax.set_ylim(-1,1)
+	ax.set_xlabel("x (kpc)")
+	ax.set_ylabel("z (kpc)")
+	ax = fig.add_subplot(2, 2, 2) 
+	select = orbits.z(t) > 0
+	ax.scatter(orbits.x(t)[select],orbits.z(t)[select],s=1,color=COL3)
+	ax.scatter(gmc.x(t),gmc.z(t),s=1,color=COL1)
+	ax.scatter(orbits.x(t)[numpy.logical_not(select)],orbits.z(t)[numpy.logical_not(select)],s=1,color=COL3)
+	ax.set_xlim(-9,9)
+	ax.set_ylim(-1,1)
+	ax.set_xlabel("x (kpc)")
+	ax.set_ylabel("z (kpc)")
+	t = ts[20]
+	ax = fig.add_subplot(2, 2, 3, projection='3d',computed_zorder=False)
+	ax.grid(False)
+	t = ts[35]
+	select = orbits.z(t) > 0
+	ax.scatter(orbits.x(t)[select],orbits.z(t)[select],s=1,color=COL3)
+	ax.scatter(gmc.x(t),gmc.z(t),s=1,color=COL1)
+	ax.scatter(orbits.x(t)[numpy.logical_not(select)],orbits.z(t)[numpy.logical_not(select)],s=1,color=COL3)
+	ax.set_xlim(-9,9)
+	ax.set_ylim(-1,1)
+	ax.set_xlabel("x (kpc)")
+	ax.set_ylabel("z (kpc)")
+	ax = fig.add_subplot(2, 2, 4, projection='3d',computed_zorder=False)
+	ax.grid(False)
+	t = ts[-1]
+	select = orbits.z(t) > 0
+	ax.scatter(orbits.x(t)[select],orbits.z(t)[select],s=1,color=COL3)
+	ax.scatter(gmc.x(t),gmc.z(t),s=1,color=COL1)
+	ax.scatter(orbits.x(t)[numpy.logical_not(select)],orbits.z(t)[numpy.logical_not(select)],s=1,color=COL3)
+	ax.set_xlim(-9,9)
+	ax.set_ylim(-1,1)
+	ax.set_xlabel("x (kpc)")
+	ax.set_ylabel("z (kpc)")
+	plt.savefig(f"spatial_map.png",dpi=300)
+	plt.savefig(f"spatial_map.svg",dpi=300)
+	plt.close()
+
 def plot_scatter(orbits,gmc):
 	ts = numpy.array(orbits.t[numpy.arange(0,len(orbits.t),4)])
 	COL3 = '#FFBA08'
@@ -120,7 +176,7 @@ def main():
 	else:
 		print("file provided does not exist")
 		return 0
-	plot_scatter(data,gmc)
+	slice_plot_scatter(data,gmc)
 	return 0
 
 if __name__ == '__main__':
