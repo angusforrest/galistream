@@ -9,7 +9,9 @@ def plot(momentum,result):
     plt.ioff()
     props = dict(boxstyle='round', facecolor='wheat', alpha=1)
     fig,ax = plt.subplots(2,1)
-    ax[0,0].scatter(momentum[1,:,-1],momentum[0,:,-1])
+    lz = momentum[1,:,-1]
+    energy = momentum[0,:,-1]
+    ax[0,0].scatter(lz,energy)
     ax[0,0].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
     ax[0,0].set_ylabel(r"$\Delta E$ (km^2 s${}^{-2}$)")
     ax[0,1].scatter(momentum[1,:,-1],momentum[0,:,-1]-result[0][-1])
