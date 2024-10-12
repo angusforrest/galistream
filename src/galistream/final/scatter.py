@@ -5,6 +5,7 @@ import os
 import pickle
 
 def plot(momentum,result):
+    plt.rcParams['agg.path.chunksize'] = 100000
     plt.rcParams['text.usetex'] = True
     plt.ioff()
     props = dict(boxstyle='round', facecolor='wheat', alpha=1)
