@@ -25,20 +25,20 @@ def main():
     parser.add_argument("momentum")
     parser.add_argument("result")
     args = parser.parse_args()
-    if os.path.exists(args.gmc_orbits):
-        with open(args.gmc_orbits,"rb") as file:
-            orbits = pickle.load(file)
+    if os.path.exists(args.momentum):
+        with open(args.momentum,"rb") as file:
+            momentum = pickle.load(file)
     else:
         print("file provided does not exist")
         return 0
-    if os.path.exists(args.gmc_orbits):
-        with open(args.gmc_orbits,"rb") as file:
-            orbits = pickle.load(file)
+    if os.path.exists(args.result):
+        with open(args.result,"rb") as file:
+            result = pickle.load(file)
     else:
         print("file provided does not exist")
         return 0
 
-    plot(orbits)
+    plot(momentum,result)
 
 if __name__ == "__main__":
     main()
