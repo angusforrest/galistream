@@ -8,17 +8,18 @@ def plot(momentum,result):
     plt.rcParams['text.usetex'] = True
     plt.ioff()
     props = dict(boxstyle='round', facecolor='wheat', alpha=1)
-    fig,ax = plt.subplots(1,2)
+    fig,ax = plt.subplots(1,2,figsize=(20,10)})
+    fig.set_tight_layout(true)
     lz = momentum[1,:,-1]
     energy = momentum[0,:,-1]
-    ax[0].scatter(lz,energy)
+    ax[0].scatter(lz,energy,s=1)
     ax[0].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
     ax[0].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
-    ax[1].scatter(momentum[1,:,-1],momentum[0,:,-1]-result[0][-1])
+    ax[1].scatter(momentum[1,:,-1],momentum[0,:,-1]-result[0][-1],s=1)
     ax[1].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
     ax[1].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
-    plt.savefig("figure_scatter.eps",dpi=300)
-    plt.savefig("figure_scatter.png",dpi=300)
+    plt.savefig("figure_scatter.eps",dpi=600)
+    plt.savefig("figure_scatter.png",dpi=600)
     plt.close()
 
 
