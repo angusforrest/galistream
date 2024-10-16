@@ -29,6 +29,7 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     ax[0].set_ylabel(r'$\Delta E$ (km${}^{2}$ s$^{-2}$)')
     ax[0].set_xlim(0,1)
     ax[0].legend(loc="upper left",title="no. GMCs")
+    ax[0].text(0.05, 0.5, 'A', transform=ax[0].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
     bbox = dict(boxstyle='round', fc='blanchedalmond', ec='orange', alpha=1)
     ax[1].axvline(ts[12],0,0.95,linestyle='dashed')
     ax[1].text(ts[12],6.5,"A",bbox=bbox,horizontalalignment='center')
@@ -56,6 +57,7 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     ax[1].set_xlabel("time (Gyr)")
     ax[1].set_ylabel(r'$\sigma$ (km s$({}^{-1}$)')
     ax[1].set_xlim(0,1)
+    ax[1].text(0.05, 0.5, 'B', transform=ax[1].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
     plt.savefig("figure_sigma.png",dpi=600)
     plt.close()
 
