@@ -47,8 +47,8 @@ def plot(orbits):
     ax[1,1].set_xlabel(f"x (kpc)")
     ax[1,1].set_aspect('equal')
     ax[1,1].text(0.05, 0.95, r't = 1 Gyr', transform=ax[1,1].transAxes, fontsize=6,verticalalignment='top', bbox=props)
-    plt.savefig("figure_gmc_angular.eps",dpi=1200)
-    plt.savefig("figure_gmc_angular.png",dpi=1200)
+    plt.savefig("figure_gmc_angular.eps",dpi=2400)
+    plt.savefig("figure_gmc_angular.png",dpi=2400)
     plt.close()
 
 
