@@ -22,7 +22,7 @@ def plot(momentum,result):
     #ax[1].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
     plt.savefig("figure_scatter.png",dpi=600)
     plt.close()
-    fig,ax = plt.subplots(1,2,figsize=(8,4))
+    fig,ax = plt.subplots(1,2,figsize=(8,4),width_ratios=[3, 2])
     fig.set_tight_layout(True)
     lz = momentum[1,:,-1]
     energy = momentum[0,:,-1]
