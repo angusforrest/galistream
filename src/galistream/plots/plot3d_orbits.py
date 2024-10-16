@@ -41,26 +41,26 @@ def plot_scatter(orbits,gmc,t):
 	COL0 = '#9D0208'
 	COLWHITE = '#F7F7F8'
 	COLBLACK = '#001134'
-    plt.ioff()
-    ax = plt.axes(projection='3d',computed_zorder=False)
+	plt.ioff()
+	ax = plt.axes(projection='3d',computed_zorder=False)
 	ax.grid(False)
 	ax.set_xticks([])
 	ax.set_yticks([])
 	ax.set_zticks([])
 	ax.set_axis_off()
-    select = orbits.z(t) > 0
-    ax.scatter(orbits.x(t)[select],orbits.y(t)[select],orbits.z(t)[select],s=1,zorder=1)
-    ax.scatter(gmc.x(t),gmc.y(t),gmc.z(t),zorder=0,s=1)
-    ax.scatter(orbits.x(t)[numpy.logical_not(select)],orbits.y(t)[numpy.logical_not(select)],orbits.z(t)[numpy.logical_not(select)],s=1,zorder=-1)
+	select = orbits.z(t) > 0
+	ax.scatter(orbits.x(t)[select],orbits.y(t)[select],orbits.z(t)[select],s=1,zorder=1)
+	ax.scatter(gmc.x(t),gmc.y(t),gmc.z(t),zorder=0,s=1)
+	ax.scatter(orbits.x(t)[numpy.logical_not(select)],orbits.y(t)[numpy.logical_not(select)],orbits.z(t)[numpy.logical_not(select)],s=1,zorder=-1)
 	ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
 	ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
 	ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 0.0))
 	ax.set_xlim(-9,9)
 	ax.set_ylim(-9,9)
 	ax.set_zlim(-1,1)
-    plt.savefig(f"frame{t:013.10f}.png",dpi=100)
-    plt.close()
-    
+	plt.savefig(f"frame{t:013.10f}.png",dpi=100)
+	plt.close()
+
 def main():
 	parser = argparse.ArgumentParser("3d_plot")
 
