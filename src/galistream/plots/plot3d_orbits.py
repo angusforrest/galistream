@@ -58,7 +58,7 @@ def plot_scatter(orbits,gmc,t):
 	ax.set_xlim(-9,9)
 	ax.set_ylim(-9,9)
 	ax.set_zlim(-1,1)
-	plt.savefig(f"frame{t:013.10f}.png",dpi=100)
+	plt.savefig(f"frame{t:013.10f}.png",dpi=400)
 	plt.close()
 
 def main():
