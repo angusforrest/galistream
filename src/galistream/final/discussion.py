@@ -15,7 +15,7 @@ def plot(momentum,result):
     for i,ax in enumerate(axs.flatten()):
         residual = momentum[0,:,ts[i]] - result[0][ts[i]]        
         ax.hist(residual,35,orientation='vertical')
-        ax.text(0.05, 0.95, labels[i], transform=ax.transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
+        ax.text(0.05, 0.5, labels[i], transform=ax.transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
 
         per84 = numpy.percentile(residual,84.0)
         per16 = numpy.percentile(residual,16.0)
@@ -27,7 +27,7 @@ def plot(momentum,result):
         ax.set_yticks([])
         ax.set_xticks([])
         pertext=f"84th percentile {per84:2.1f}\n50th percentile {per50:2.1f}\n16th percentile {per16:2.1f}"
-        ax.text(0.95, 0.95, pertext, transform=ax.transAxes, fontsize=10, va='top', ha='right')
+        ax.text(0.01, 0.99, pertext, transform=ax.transAxes, fontsize=10, va='top', ha='left')
 
     plt.subplots_adjust(wspace=0, hspace=0)
     plt.savefig("figure_discussion.png",dpi=600)
