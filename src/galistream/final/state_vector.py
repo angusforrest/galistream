@@ -15,7 +15,7 @@ def plot_state(truth,deflect):
 	orbit1 = deflect[0]
 	fig, ax = plt.subplots(2, 3, figsize=(8, 4), sharex=True)
 	ts = orbit0.t
-	ts0 = np.linspace(0,1,len(ts))
+	ts0 = numpy.linspace(0,1,len(ts))
 	fig.set_tight_layout(True)
 	ax[0, 0].plot(ts0, orbit0.x(ts))
 	ax[0, 1].plot(ts0, orbit0.y(ts))
