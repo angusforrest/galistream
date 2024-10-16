@@ -28,8 +28,8 @@ def plot(orbits):
     ax[1,0].text(0.05, 0.95, r't = 1 Gyr', transform=ax[1,0].transAxes, fontsize=6,
         verticalalignment='top', bbox=props)
     # 0 Gyr Colormap GMC Plot
-    im = ax[0,1].scatter(orbits.x(0),orbits.y(0),c=orbits.phi(0),cmap="twilight",s=.1)
-    cbar = fig.colorbar(im,ax=ax[0,1],ticks=[-numpy.pi/2, 0, numpy.pi/2])
+    im = ax[0,1].scatter(orbits.x(0),orbits.y(0),c=orbits.phi(0),cmap="twilight",s=1)
+    cbar = fig.colorbar(im,ax=ax[0,1],ticks=[-numpy.pi, 0, numpy.pi])
     cbar.ax.set_yticklabels([r'-180', '0', r'180'])
     ax[0,1].set_xlim(-10,10)
     ax[0,1].set_ylim(-10,10)
@@ -37,8 +37,8 @@ def plot(orbits):
     ax[0,1].text(0.05, 0.95, r't = 0 Gyr', transform=ax[0,1].transAxes, fontsize=6,
         verticalalignment='top', bbox=props)
     # 1 Gyr Colormap GMC Plot
-    im = ax[1,1].scatter(orbits.x(ts[-1]),orbits.y(ts[-1]),c=orbits.phi(0),cmap="twilight",s=.1)
-    cbar = fig.colorbar(im,ax=ax[1,1],ticks=[-180, 0, 180])
+    im = ax[1,1].scatter(orbits.x(ts[-1]),orbits.y(ts[-1]),c=orbits.phi(0),cmap="twilight",s=1)
+    cbar = fig.colorbar(im,ax=ax[1,1],ticks=[-numpy.pi, 0, numpy.pi])
     labels = cbar.ax.get_yticklabels()
     labels[0].set_verticalalignment('top')
     labels[-1].set_verticalalignment('bottom')
