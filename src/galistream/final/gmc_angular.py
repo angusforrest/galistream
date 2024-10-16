@@ -17,7 +17,7 @@ def plot(orbits):
     ax[0,0].set_ylabel(f"y (kpc)")
     ax[0,0].set_aspect('equal')
     ax[0,0].text(0.05, 0.95, r't = 0 Gyr', transform=ax[0,0].transAxes, fontsize=6,verticalalignment='top', bbox=props)
-    ax[0,0].text(0.05, 0.05, 'A', transform=ax.transAxes, fontsize=10, fontweight='bold', va='top', ha='right')
+    ax[0,0].text(0.05, 0.05, 'A', transform=ax[0,0].transAxes, fontsize=10, fontweight='bold', va='top', ha='right')
     # 1 Gyr GMC Plot
     ax[1,0].scatter(orbits.x(ts[-1]),orbits.y(ts[-1]),s=1)
     ax[1,0].set_xlim(-10,10)
@@ -27,7 +27,7 @@ def plot(orbits):
     ax[1,0].set_aspect('equal')
     ax[1,0].text(0.05, 0.95, r't = 1 Gyr', transform=ax[1,0].transAxes, fontsize=6,
         verticalalignment='top', bbox=props)
-    ax[1,0].text(0.05, 0.05, 'B', transform=ax.transAxes, fontsize=10, fontweight='bold', va='top', ha='right')
+    ax[1,0].text(0.05, 0.05, 'B', transform=ax[1,0].transAxes, fontsize=10, fontweight='bold', va='top', ha='right')
     # 0 Gyr Colormap GMC Plot
     im = ax[0,1].scatter(orbits.x(0),orbits.y(0),c=orbits.phi(0),cmap="twilight",s=1)
     phi = sorted(orbits.phi(0))
@@ -39,7 +39,7 @@ def plot(orbits):
     ax[0,1].set_aspect('equal')
     ax[0,1].text(0.05, 0.95, r't = 0 Gyr', transform=ax[0,1].transAxes, fontsize=6,
         verticalalignment='top', bbox=props)
-    ax[0,1].text(0.05, 0.05, 'C', transform=ax.transAxes, fontsize=10, fontweight='bold', va='top', ha='right')
+    ax[0,1].text(0.05, 0.05, 'C', transform=ax[0,1].transAxes, fontsize=10, fontweight='bold', va='top', ha='right')
     # 1 Gyr Colormap GMC Plot
     im = ax[1,1].scatter(orbits.x(ts[-1]),orbits.y(ts[-1]),c=orbits.phi(0),cmap="twilight",s=1)
     cbar = fig.colorbar(im,ax=ax[1,1],ticks=[phi[0], 0, phi[-1]])
@@ -49,7 +49,7 @@ def plot(orbits):
     ax[1,1].set_xlabel(f"x (kpc)")
     ax[1,1].set_aspect('equal')
     ax[1,1].text(0.05, 0.95, r't = 1 Gyr', transform=ax[1,1].transAxes, fontsize=6,verticalalignment='top', bbox=props)
-    ax[1,1].text(0.05, 0.05, 'D', transform=ax.transAxes, fontsize=10, fontweight='bold', va='top', ha='right')
+    ax[1,1].text(0.05, 0.05, 'D', transform=ax[1,1].transAxes, fontsize=10, fontweight='bold', va='top', ha='right')
     plt.savefig("figure_gmc_angular.eps",dpi=2400)
     plt.savefig("figure_gmc_angular.png",dpi=2400)
     plt.close()
