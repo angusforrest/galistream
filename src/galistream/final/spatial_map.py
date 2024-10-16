@@ -15,6 +15,7 @@ def plot_scatter(orbits,gmc):
 	COLBLACK = '#001134'
 	plt.ioff()
 	fig = plt.figure(figsize=(8,10))
+	plt.tight_layout()
 	ax = fig.add_subplot(3, 1, 1, projection='3d',computed_zorder=False)
 	ax.grid(False)
 	t = ts[360]
@@ -32,6 +33,7 @@ def plot_scatter(orbits,gmc):
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("y (kpc)")
 	ax.set_zlabel("z (kpc)")
+	ax.pbaspect = [2.0, 0.6, 0.25]
 	ax = fig.add_subplot(3,1, 2, projection='3d',computed_zorder=False)
 	ax.grid(False)
 	t = ts[380]
@@ -49,6 +51,7 @@ def plot_scatter(orbits,gmc):
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("y (kpc)")
 	ax.set_zlabel("z (kpc)")
+	ax.pbaspect = [2.0, 0.6, 0.25]
 	ax = fig.add_subplot(3,1, 3, projection='3d',computed_zorder=False)
 	ax.grid(False)
 	t = ts[400]
@@ -66,6 +69,7 @@ def plot_scatter(orbits,gmc):
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("y (kpc)")
 	ax.set_zlabel("z (kpc)")
+	ax.pbaspect = [2.0, 0.6, 0.25]
 	plt.savefig(f"spatial_map.png",dpi=900)
 	plt.savefig(f"spatial_map.svg",dpi=900)
 	plt.close()
