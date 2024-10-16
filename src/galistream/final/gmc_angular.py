@@ -29,7 +29,7 @@ def plot(orbits):
         verticalalignment='top', bbox=props)
     # 0 Gyr Colormap GMC Plot
     im = ax[0,1].scatter(orbits.x(0),orbits.y(0),c=orbits.phi(0),cmap="twilight",s=.1)
-    cbar = fig.colorbar(im,ax=ax[0,1],ticks=[-180, 0, 180])
+    cbar = fig.colorbar(im,ax=ax[0,1],ticks=[-numpy.pi/2, 0, numpy.pi/2])
     cbar.ax.set_yticklabels([r'-180', '0', r'180'])
     ax[0,1].set_xlim(-10,10)
     ax[0,1].set_ylim(-10,10)
