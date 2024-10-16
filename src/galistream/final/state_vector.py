@@ -29,6 +29,8 @@ def plot_state(truth,deflect):
 	ax[1, 0].plot(ts0, orbit1.vx(ts))
 	ax[1, 1].plot(ts0, orbit1.vy(ts))
 	ax[1, 2].plot(ts0, orbit1.vz(ts))
+	for x in ax:
+		x.set_xlim(0,1)
 	ax[0, 0].set_ylabel(f"x (kpc)")
 	ax[0, 1].set_ylabel(f"y (kpc)")
 	ax[0, 2].set_ylabel(f"z (kpc)")
