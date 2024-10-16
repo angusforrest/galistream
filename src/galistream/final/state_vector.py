@@ -13,7 +13,7 @@ def plot_state(truth,deflect):
 	plt.ioff()
 	orbit0 = truth[0]
 	orbit1 = deflect[0]
-    plt.rcParams['text.usetex'] = True
+	plt.rcParams['text.usetex'] = True
 	fig, ax = plt.subplots(2, 3, figsize=(8, 4), sharex=True)
 	ts = orbit0.t
 	ts0 = numpy.linspace(0,1,len(ts))
