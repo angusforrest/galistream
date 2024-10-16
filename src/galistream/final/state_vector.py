@@ -14,7 +14,7 @@ def plot_state(truth,deflect):
 	orbit0 = truth[0]
 	orbit1 = deflect[0]
 	fig, ax = plt.subplots(2, 3, figsize=(8, 4), sharex=True)
-	ts = orbit.t
+	ts = orbit0.t
 	ax[0, 0].plot(ts, orbit0.x(ts))
 	ax[1, 0].plot(ts, orbit0.y(ts))
 	ax[2, 0].plot(ts, orbit0.z(ts))
