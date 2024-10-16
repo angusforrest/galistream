@@ -7,9 +7,10 @@ import pickle
 def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     plt.rcParams['text.usetex'] = True
     plt.ioff()
-    fig,ax = plt.subplots(1,2,sharex=True)
+    fig,ax = plt.subplots(2,1,sharex=True)
     fig.set_tight_layout(True)
     ts = d1250_0[-1]
+    ax[0].plot(ts,d0_0[1],c="blue",label="0",linestyle="dashed")
     ax[0].plot(ts,d1250_0[1],c="blue",label="1250")
     ax[0].plot(ts,d1250_1[1],c="blue")
     ax[0].plot(ts,d1250_2[1],c="blue")
@@ -36,6 +37,7 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     ax[1].text(ts[33],6.5,"E",bbox=bbox,horizontalalignment='center')
     ax[1].axvline(ts[39],0,0.95,linestyle='dashed')
     ax[1].text(ts[39],6.5,"F",bbox=bbox,horizontalalignment='center')
+    ax[1].plot(ts,numpy.sqrt(d0_0[1]),c="blue",label="0",linestyle="dashed")
     ax[1].plot(ts,numpy.sqrt(d1250_0[1]),c="blue",label="1250")
     ax[1].plot(ts,numpy.sqrt(d1250_1[1]),c="blue")
     ax[1].plot(ts,numpy.sqrt(d1250_2[1]),c="blue")
