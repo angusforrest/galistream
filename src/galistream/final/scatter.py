@@ -22,6 +22,17 @@ def plot(momentum,result):
     #ax[1].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
     plt.savefig("figure_scatter.png",dpi=600)
     plt.close()
+    fig,ax = plt.subplots(2,1,figsize=(8,8))
+    fig.set_tight_layout(True)
+    lz = momentum[1,:,-1]
+    energy = momentum[0,:,-1]
+    ax[0].scatter(momentum[1,:,-1],momentum[0,:,-1]-result[0][-1],s=1)
+    ax[0].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
+    ax[0].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
+    counts, bins = numpy.histogram(momentum[0,:,-1]-result[0][-1])
+    ax[1].stairs(counts, bins,orientation='horizontal')
+    plt.savefig("figure_histogram.png",dpi=600)
+    plt.close()
 
 
 def main():
