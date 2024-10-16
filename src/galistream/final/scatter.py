@@ -31,20 +31,20 @@ def plot(momentum,result):
     ax[0].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
     ax[0].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
     ax[0].text(0.05, 0.95, 'A', transform=ax[0].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
-    ax[1].hist(residual,20,orientation='horizontal')
+    ax[1].hist(residual,35,orientation='horizontal')
     ax[1].text(0.05, 0.95, 'B', transform=ax[1].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
 
     per84 = numpy.percentile(residual,84.0)
     per16 = numpy.percentile(residual,16.0)
     per50 = numpy.percentile(residual,50.0)
 
-    ax[1].axhline(per84,color="orange")
-    ax[1].axhline(per16,color="orange")
-    ax[1].axhline(per50,color="orange")
+    ax[1].axhline(per84,color="orange",linestyle="dashed")
+    ax[1].axhline(per16,color="orange",linestyle="dashed")
+    ax[1].axhline(per50,color="orange",linestyle="dashed")
     ax[1].set_yticks([])
     ax[1].set_xticks([])
     pertext=f"84th percentile {per84:2.1f}\n50th percentile {per50:2.1f}\n16th percentile {per16:2.1f}"
-    ax[1].text(0.70, 0.95, pertext, transform=ax[1].transAxes, fontsize=10, va='top', ha='right')
+    ax[1].text(0.95, 0.95, pertext, transform=ax[1].transAxes, fontsize=10, va='top', ha='right')
     plt.savefig("figure_histogram.png",dpi=600)
     plt.close()
 
