@@ -13,6 +13,7 @@ def plot_state(truth,deflect):
 	plt.ioff()
 	orbit0 = truth[0]
 	orbit1 = deflect[0]
+    plt.rcParams['text.usetex'] = True
 	fig, ax = plt.subplots(2, 3, figsize=(8, 4), sharex=True)
 	ts = orbit0.t
 	ts0 = numpy.linspace(0,1,len(ts))
@@ -35,11 +36,11 @@ def plot_state(truth,deflect):
 	ax[0, 1].set_ylabel(f"y (kpc)")
 	ax[0, 2].set_ylabel(f"z (kpc)")
 	ax[1, 0].set_xlabel(f"t (Gyr)")
-	ax[1, 0].set_ylabel(f"vx (kpc)")
+	ax[1, 0].set_ylabel(r"vx (km s${}^{-1}$)")
 	ax[1, 1].set_xlabel(f"t (Gyr)")
-	ax[1, 1].set_ylabel(f"vy (kpc)")
+	ax[1, 1].set_ylabel(r"vy (km s${}^{-1}$)")
 	ax[1, 2].set_xlabel(f"t (Gyr)")
-	ax[1, 2].set_ylabel(f"vz (kpc)")
+	ax[1, 2].set_ylabel(r"vz (km s${}^{-1}$)")
 	plt.savefig(f"statevector.png", dpi=300)
 	plt.close()
 
