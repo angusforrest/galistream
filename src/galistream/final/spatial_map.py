@@ -33,7 +33,7 @@ def plot_scatter(orbits,gmc):
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("y (kpc)")
 	ax.set_zlabel("z (kpc)")
-	ax.set_box_aspect((numpy.ptp(orbits.x(t)), numpy.ptp(orbits.y(t), numpy.ptp(orbits(z(t)))))
+	ax.set_box_aspect((numpy.ptp(orbits.x(t)), numpy.ptp(orbits.y(t)), numpy.ptp(orbits(z(t)))))
 	ax = fig.add_subplot(3,1, 2, projection='3d',computed_zorder=False)
 	ax.grid(False)
 	t = ts[380]
