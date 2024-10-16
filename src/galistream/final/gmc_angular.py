@@ -9,6 +9,7 @@ def plot(orbits):
     plt.ioff()
     props = dict(boxstyle='round', facecolor='wheat', alpha=1)
     fig,ax = plt.subplots(2,2,sharex=True,sharey=True)
+    fig.set_tight_layout(True)
     # 0 Gyr GMC Plot
     ax[0,0].scatter(orbits.x(0),orbits.y(0),s=.1)
     ax[0,0].set_xlim(-10,10)
@@ -38,6 +39,9 @@ def plot(orbits):
     # 1 Gyr Colormap GMC Plot
     im = ax[1,1].scatter(orbits.x(ts[-1]),orbits.y(ts[-1]),c=orbits.phi(0),cmap="twilight",s=.1)
     cbar = fig.colorbar(im,ax=ax[1,1],ticks=[-1, 0, 1])
+    labels = cbar.ax.get_yticklabels()
+    labels[0].set_verticalalignment('top')
+    labels[-1].set_verticalalignment('bottom')
     cbar.ax.set_yticklabels([r'-180', '0', r'180'])
     ax[1,1].set_xlim(-10,10)
     ax[1,1].set_ylim(-10,10)
