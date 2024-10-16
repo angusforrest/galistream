@@ -51,10 +51,8 @@ def plot_scatter(orbits,gmc):
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("y (kpc)")
 	ax.set_zlabel("z (kpc)")
-	ax.pbaspect = [2.0, 0.6, 0.25]
 	ax.set_aspect('equal')
 	ax = fig.add_subplot(3,1, 3, projection='3d',computed_zorder=False)
-	ax.set_aspect('equal')
 	ax.grid(False)
 	t = ts[400]
 	iso = numpy.array([orbits.x(t),orbits.y(t),orbits.z(t)])
@@ -71,7 +69,7 @@ def plot_scatter(orbits,gmc):
 	ax.set_xlabel("x (kpc)")
 	ax.set_ylabel("y (kpc)")
 	ax.set_zlabel("z (kpc)")
-	ax.pbaspect = [2.0, 0.6, 0.25]
+	ax.set_aspect('equal')
 	plt.savefig(f"spatial_map.png",dpi=900)
 	plt.savefig(f"spatial_map.svg",dpi=900)
 	plt.close()
