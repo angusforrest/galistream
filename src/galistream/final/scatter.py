@@ -26,11 +26,14 @@ def plot(momentum,result):
     fig.set_tight_layout(True)
     lz = momentum[1,:,-1]
     energy = momentum[0,:,-1]
-    ax[0].scatter(momentum[1,:,-1],momentum[0,:,-1]-result[0][-1],s=1)
+    residual = momentum[0,:,-1]-result[0][-1]
+    ax[0].scatter(momentum[1,:,-1],residual,s=1)
     ax[0].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
     ax[0].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
-    counts, bins = numpy.histogram(momentum[0,:,-1]-result[0][-1])
-    ax[1].stairs(counts, bins,orientation='horizontal')
+    ax[1].hist(residual,orientation='horizontal')
+    ax[1].axhline(numpy.percentile(residual,86.0))
+    ax[1].axhline(numpy.percentile(residual,14.0))
+    ax[1].axhline(numpy.percentile(residual,50.0))
     ax[1].set_yticks([])
     ax[1].set_xticks([])
     plt.savefig("figure_histogram.png",dpi=600)
