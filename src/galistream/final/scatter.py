@@ -43,7 +43,9 @@ def plot(momentum,result):
     ax[1].axhline(per50,50.0,color="orange")
     ax[1].set_yticks([])
     ax[1].set_xticks([])
-    pertext=f"16th percentile {per16}\\50th percentile {per50}\\84th percentile {per84}"
+    pertext=f"16th percentile {per16:2.1f}\
+            50th percentile {per50:2.1f}\
+            84th percentile {per84:2.1f}"
     ax[1].text(0.70, 0.95, pertext, transform=ax[1].transAxes, fontsize=10, va='bottom', ha='left')
     plt.savefig("figure_histogram.png",dpi=600)
     plt.close()
