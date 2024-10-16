@@ -14,7 +14,7 @@ def plot_scatter(orbits,gmc):
 	COLWHITE = '#F7F7F8'
 	COLBLACK = '#001134'
 	plt.ioff()
-	fig = plt.figure(figsize=(8,3))
+	fig = plt.figure(figsize=(8,10))
 	plt.tight_layout()
 	ax = fig.add_subplot(projection='3d',computed_zorder=False)
 	ax.grid(False)
@@ -36,7 +36,7 @@ def plot_scatter(orbits,gmc):
 	ax.set_zlabel("z (kpc)")
 	ax.set_aspect('equal')
 	plt.savefig("figure_spatial_360.png",dpi=900)
-	fig = plt.figure(figsize=(8,3))
+	fig = plt.figure(figsize=(8,10))
 	ax = fig.add_subplot(projection='3d',computed_zorder=False)
 	ax.grid(False)
 	t = ts[380]
@@ -57,7 +57,7 @@ def plot_scatter(orbits,gmc):
 	ax.set_zlabel("z (kpc)")
 	ax.set_aspect('equal')
 	plt.savefig("figure_spatial_380.png",dpi=900)
-	fig = plt.figure(figsize=(8,3))
+	fig = plt.figure(figsize=(8,10))
 	ax = fig.add_subplot(projection='3d',computed_zorder=False)
 	ax.grid(False)
 	t = ts[400]
