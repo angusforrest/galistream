@@ -30,12 +30,21 @@ def plot(momentum,result):
     ax[0].scatter(momentum[1,:,-1],residual,s=1)
     ax[0].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
     ax[0].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
+    ax[0].text(0.05, 0.95, 'A', transform=ax[0].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
     ax[1].hist(residual,orientation='horizontal')
-    ax[1].axhline(numpy.percentile(residual,86.0))
-    ax[1].axhline(numpy.percentile(residual,14.0))
-    ax[1].axhline(numpy.percentile(residual,50.0))
+    ax[1].text(0.05, 0.95, 'B', transform=ax[1].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
+
+    per84 = numpy.percentile(residual,84.0)
+    per16 = numpy.percentile(residual,16.0)
+    per50 = numpy.percentile(residual,50.0)
+
+    ax[1].axhline(per84,84.0,color="orange")
+    ax[1].axhline(per16,16.0,color="orange")
+    ax[1].axhline(per50,50.0,color="orange")
     ax[1].set_yticks([])
     ax[1].set_xticks([])
+    pertext=f"16th percentile {per16}\\50th percentile {per50}\\84th percentile {per84}"
+    ax[1].text(0.70, 0.95, pertext, transform=ax[1].transAxes, fontsize=10, va='bottom', ha='left')
     plt.savefig("figure_histogram.png",dpi=600)
     plt.close()
 
