@@ -12,7 +12,7 @@ def plot(momentum,result):
     fig.set_tight_layout(True)
     ts = [12,16,20,25,33,39]
     labels = ['A','B','C','D','E','F']
-    for ax in axs.flatten():
+    for i,ax in enumerate(axs.flatten()):
         residual = momentum[0,:,ts[i]] - result[0][ts[i]]        
         ax.hist(residual,35,orientation='vertical')
         ax.text(0.05, 0.95, labels[i], transform=ax[1].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
