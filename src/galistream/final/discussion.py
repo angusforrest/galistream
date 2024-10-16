@@ -5,42 +5,31 @@ import os
 import pickle
 
 def plot(momentum,result):
-    plt.rcParams['agg.path.chunksize'] = 100000
     plt.rcParams['text.usetex'] = True
     plt.ioff()
     props = dict(boxstyle='round', facecolor='wheat', alpha=1)
-    fig,ax = plt.subplots(2,3,figsize=(18,10),sharex=True,sharey=True)
+    fig,axs = plt.subplots(3,2,figsize=(8,10))
     fig.set_tight_layout(True)
-    lz = momentum[1,:,12]
-    energy = momentum[0,:,12]
-    ax[0,0].plot(sorted(lz),result[0][12][numpy.argsort(lz)],color='orange')
-    ax[0,0].scatter(lz,energy,s=1)
-    ax[0,0].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
-    lz = momentum[1,:,16]
-    energy = momentum[0,:,16]
-    ax[0,1].plot(sorted(lz),result[0][16][numpy.argsort(lz)],color='orange')
-    ax[0,1].scatter(lz,energy,s=1)
-    lz = momentum[1,:,20]
-    energy = momentum[0,:,20]
-    ax[0,2].plot(sorted(lz),result[0][20][numpy.argsort(lz)],color='orange')
-    ax[0,2].scatter(lz,energy,s=1)
-    lz = momentum[1,:,25]
-    energy = momentum[0,:,25]
-    ax[1,0].plot(sorted(lz),result[0][25][numpy.argsort(lz)],color='orange')
-    ax[1,0].scatter(lz,energy,s=1)
-    ax[1,0].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
-    ax[1,0].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
-    lz = momentum[1,:,33]
-    energy = momentum[0,:,33]
-    ax[1,1].plot(sorted(lz),result[0][33][numpy.argsort(lz)],color='orange')
-    ax[1,1].scatter(lz,energy,s=1)
-    ax[1,1].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
-    lz = momentum[1,:,39]
-    energy = momentum[0,:,39]
-    ax[1,2].plot(sorted(lz),result[0][39][numpy.argsort(lz)],color='orange')
-    ax[1,2].scatter(lz,energy,s=1)
-    ax[1,2].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
-    plt.savefig("figure_discussion.eps",dpi=600)
+    ts = [12,16,20,25,33,39]
+    labels = ['A','B','C','D','E','F']
+    for ax in axs.flatten():
+        residual = momentum[0,:,ts[i]] - result[0][ts[i]]        
+        ax.hist(residual,35,orientation='vertical')
+        ax.text(0.05, 0.95, labels[i], transform=ax[1].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
+
+        per84 = numpy.percentile(residual,84.0)
+        per16 = numpy.percentile(residual,16.0)
+        per50 = numpy.percentile(residual,50.0)
+
+        ax.axvline(per84,color="orange",linestyle="dashed")
+        ax.axvline(per16,color="orange",linestyle="dashed")
+        ax.axvline(per50,color="orange",linestyle="dashed")
+        ax.set_yticks([])
+        ax.set_xticks([])
+        pertext=f"84th percentile {per84:2.1f}\n50th percentile {per50:2.1f}\n16th percentile {per16:2.1f}"
+        ax.text(0.95, 0.95, pertext, transform=ax[1].transAxes, fontsize=10, va='top', ha='right')
+
+    plt.subplots_adjust(wspace=0, hspace=0)
     plt.savefig("figure_discussion.png",dpi=600)
     plt.close()
 
