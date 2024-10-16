@@ -14,6 +14,7 @@ def plot(orbits):
     ax[0,0].scatter(orbits.x(0),orbits.y(0),s=1)
     ax[0,0].set_xlim(-10,10)
     ax[0,0].set_ylim(-10,10)
+    ax[0,0].set_aspect('equal')
     ax[0,0].set_ylabel(f"y (kpc)")
     ax[0,0].text(0.05, 0.95, r't = 0 Gyr', transform=ax[0,0].transAxes, fontsize=6,verticalalignment='top', bbox=props)
     ax[0,0].text(0.05, 0.05, 'A', transform=ax[0,0].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
@@ -21,6 +22,7 @@ def plot(orbits):
     ax[1,0].scatter(orbits.x(ts[-1]),orbits.y(ts[-1]),s=1)
     ax[1,0].set_xlim(-10,10)
     ax[1,0].set_ylim(-10,10)
+    ax[1,0].set_aspect('equal')
     ax[1,0].set_ylabel(f"y (kpc)")
     ax[1,0].set_xlabel(f"x (kpc)")
     ax[1,0].text(0.05, 0.95, r't = 1 Gyr', transform=ax[1,0].transAxes, fontsize=6,
@@ -34,6 +36,7 @@ def plot(orbits):
     cbar.ax.set_yticklabels([r'-180', '0', r'180'])
     ax[0,1].set_xlim(-10,10)
     ax[0,1].set_ylim(-10,10)
+    ax[0,1].set_aspect('equal')
     ax[0,1].text(0.05, 0.95, r't = 0 Gyr', transform=ax[0,1].transAxes, fontsize=6,
         verticalalignment='top', bbox=props)
     ax[0,1].text(0.05, 0.05, 'C', transform=ax[0,1].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
