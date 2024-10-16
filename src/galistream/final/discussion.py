@@ -27,7 +27,7 @@ def plot(momentum,result):
         ax.set_yticks([])
         ax.set_xticks([])
         pertext=f"84th percentile {per84:2.1f}\n50th percentile {per50:2.1f}\n16th percentile {per16:2.1f}"
-        ax.text(0.95, 0.95, pertext, transform=ax[1].transAxes, fontsize=10, va='top', ha='right')
+        ax.text(0.95, 0.95, pertext, transform=ax.transAxes, fontsize=10, va='top', ha='right')
 
     plt.subplots_adjust(wspace=0, hspace=0)
     plt.savefig("figure_discussion.png",dpi=600)
