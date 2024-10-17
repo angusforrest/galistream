@@ -9,7 +9,6 @@ def main():
     # of the map.
     # resolution = 'i' means use intermediate resolution coastlines.
     # lon_0, lat_0 are the central longitude and latitude of the projection.
-    plt.figure(figsize=(2,4))
     m = Basemap(projection='merc',
             resolution=None,llcrnrlon=-168.,llcrnrlat=-45.,urcrnrlon=-61.,urcrnrlat=37.7,lat_ts=-20)
     #m = Basemap(width=12000000,height=9000000,projection='lcc',,
@@ -19,6 +18,29 @@ def main():
     #m = Basemap(width=891185,height=1115557,\
     #            resolution='i',projection='cass',lon_0=-4.36,lat_0=54.7)
     m.shadedrelief()
+
+    lon, lat =  -156.2569, 20.7074 # Location of Boulder
+    # convert to map projection coords. 
+    # Note that lon,lat can be scalars, lists or numpy arrays.
+    xpt,ypt = m(lon,lat) 
+    # convert back to lat/lon
+    lonpt, latpt = m(xpt,ypt,inverse=True)
+    m.plot(xpt,ypt,'bo')  # plot a blue dot there
+    # put some text next to the dot, offset a little bit
+    # (the offset is in map projection coordinates)
+    plt.text(xpt+100000,ypt+100000,'Haleakala Observatory (%5.1fW,%3.1fN)' % (lonpt,latpt))
+    
+    lon, lat =   -70.749417, -30.244639 # Location of Boulder
+    # convert to map projection coords. 
+    # Note that lon,lat can be scalars, lists or numpy arrays.
+    xpt,ypt = m(lon,lat) 
+    # convert back to lat/lon
+    lonpt, latpt = m(xpt,ypt,inverse=True)
+    m.plot(xpt,ypt,'bo')  # plot a blue dot there
+    # put some text next to the dot, offset a little bit
+    # (the offset is in map projection coordinates)
+    plt.text(xpt+100000,ypt+100000,'Vera C. Rubin Observatory (%5.1fW,%3.1fN)' % (lonpt,latpt))
+    
     # draw parallels and meridians.
     plt.savefig('basemap.png',dpi=600)
 
