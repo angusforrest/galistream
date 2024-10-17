@@ -11,7 +11,7 @@ def main():
     # lon_0, lat_0 are the central longitude and latitude of the projection.
     plt.figure(figsize=(2,4))
     m = Basemap(projection='merc',
-            resolution=None,llcrnrlon=-168.,llcrnrlat=-45.,urcrnrlon=-61.,urcrnrlat=37.7,lat_1=0.,lat_0=0.,lon_0=-107.)
+            resolution=None,llcrnrlon=-168.,llcrnrlat=-45.,urcrnrlon=-61.,urcrnrlat=37.7,lat_ts=-20)
     #m = Basemap(width=12000000,height=9000000,projection='lcc',,
     #            resolution=None)
     # can get the identical map this way (by specifying width and
