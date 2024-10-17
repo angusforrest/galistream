@@ -28,7 +28,7 @@ def main():
     m.plot(xpt,ypt,'bo')  # plot a blue dot there
     # put some text next to the dot, offset a little bit
     # (the offset is in map projection coordinates)
-    plt.text(xpt+100000,ypt+100000,'Haleakala Observatory (%5.1fW,%3.1fN)' % (lonpt,latpt))
+    plt.text(xpt+100000,ypt+100000,'Haleakala Observatory\n (%5.1fW,%3.1fN)' % (lonpt,latpt),va='top',ha='left')
     
     lon, lat =   -70.749417, -30.244639 # Location of Boulder
     # convert to map projection coords. 
@@ -39,7 +39,7 @@ def main():
     m.plot(xpt,ypt,'bo')  # plot a blue dot there
     # put some text next to the dot, offset a little bit
     # (the offset is in map projection coordinates)
-    plt.text(xpt+100000,ypt+100000,'Vera C. Rubin Observatory (%5.1fW,%3.1fN)' % (lonpt,latpt))
+    plt.text(xpt+100000,ypt+100000,'Vera C. Rubin Observatory\n (%5.1fW,%3.1fN)' % (lonpt,latpt),va='bottom',ha='right')
     
     # draw parallels and meridians.
     plt.savefig('basemap.png',dpi=600)
