@@ -10,7 +10,7 @@ def main():
     # resolution = 'i' means use intermediate resolution coastlines.
     # lon_0, lat_0 are the central longitude and latitude of the projection.
     plt.figure(figsize=(2,4))
-    m = Basemap(width=12000000,height=9000000,projection='lcc',
+    m = Basemap(projection='lcc',
             resolution=None,lat_1=45.,lat_2=55,lat_0=50,lon_0=-107.)
     #m = Basemap(width=12000000,height=9000000,projection='lcc',llcrnrlon=-48.88,llcrnrlat=-164.04,urcrnrlon=52.01,urcrnrlat=-58.04,
     #            resolution=None)
@@ -20,10 +20,6 @@ def main():
     #            resolution='i',projection='cass',lon_0=-4.36,lat_0=54.7)
     m.shadedrelief()
     # draw parallels and meridians.
-    m.drawparallels(np.arange(-40,61.,2.))
-    m.drawmeridians(np.arange(-20.,21.,2.))
-    m.drawmapboundary(fill_color='aqua') 
-    plt.title("Cassini Projection")
     plt.savefig('basemap.png',dpi=600)
 
 if __name__ == '__main__':
