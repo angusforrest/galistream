@@ -10,7 +10,7 @@ def main():
     # resolution = 'i' means use intermediate resolution coastlines.
     # lon_0, lat_0 are the central longitude and latitude of the projection.
     plt.figure(figsize=(2,4))
-    m = Basemap(projection='tmerc',
+    m = Basemap(projection='merc',
             resolution=None,llcrnrlon=134.04,llcrnrlat=-48.88,urcrnrlon=28.04,urcrnrlat=52.01,lat_1=45.,lat_0=0,lon_0=-107.)
     #m = Basemap(width=12000000,height=9000000,projection='lcc',,
     #            resolution=None)
