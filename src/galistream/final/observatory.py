@@ -39,7 +39,7 @@ def main():
     m.plot(xpt,ypt,'bo')  # plot a blue dot there
     # put some text next to the dot, offset a little bit
     # (the offset is in map projection coordinates)
-    plt.text(xpt-100000*2,ypt+100000*2,'Vera C. Rubin Observatory\n (%5.1fW,%3.1fN)' % (lonpt,latpt),va='bottom',ha='right')
+    plt.text(xpt-100000*2,ypt+100000*2,'Vera C. Rubin Observatory\n (%5.1fW,%3.1fS)' % (lonpt,latpt),va='bottom',ha='right')
     
     # draw parallels and meridians.
     plt.savefig('basemap.png',dpi=600)
