@@ -55,7 +55,7 @@ def plot(d0_0,d1250_0,d1250_1,d1250_2,d2500_0,d2500_1,d2500_2,d5000_0,d5000_1):
     ax[1].legend(loc="upper left")
     ax[1].legend(loc="upper left",title=f"Number of Giant\n Molecular Clouds")
     ax[1].set_xlabel("time (Gyr)")
-    ax[1].set_ylabel(r'$\sigma(v_\text{iso})$ (km s${}^{-1}$)')
+    ax[1].set_ylabel(r'$\sigma(v)$ (km s${}^{-1}$)')
     ax[1].set_xlim(0,1)
     ax[1].text(0.05, 0.5, 'B', transform=ax[1].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
     plt.savefig("figure_sigma.png",dpi=600)
