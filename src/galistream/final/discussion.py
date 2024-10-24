@@ -32,21 +32,6 @@ def plot(momentum,result):
     plt.subplots_adjust(wspace=0, hspace=0)
     plt.savefig("figure_discussion.png",dpi=600)
     plt.close()
-    fi,axs = plt.subplots(1,3,figsize=(8,3),sharey=True)
-    fig.set_tight_layout(True)
-    ts = [12,20,33]
-    labels= ['A','C','E']
-    axs[0].set_ylabel(r"Total Energy Residuals $\Delta E$ (km${}^2$ s${}^{-2}$)")
-    for i,ax in enumerate(axs):
-        lz = momentum[1,:,ts[i]]
-        energy = momentum[1,:,ts[i]]
-        residual = energy - result[0][ts[i]]
-        ax.set_xlabel(r"Angular Momentum $L_z$ (kpc km s${}^{-1}$)")
-        ax.scatter(lz,residual,s=1)
-        ax.text(0.05, 0.5, labels[i], transform=ax.transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
-    plt.subplots_adjust(wspace=0, hspace=0)
-    plt.savefig("figure_discussion2.png",dpi=600)
-    plt.close()
 
 def main():
     parser = argparse.ArgumentParser("plot_scatter")
