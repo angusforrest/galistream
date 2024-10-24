@@ -8,14 +8,14 @@ def plot(momentum,result):
     plt.rcParams['text.usetex'] = True
     plt.ioff()
     props = dict(boxstyle='round', facecolor='wheat', alpha=1)
-    fig,axs = plt.subplots(3,2,figsize=(8,10))
+    fig,axs = plt.subplots(3,2,figsize=(8,3))
     fig.set_tight_layout(True)
     ts = [12,16,20,25,33,39]
     labels = ['A','B','C','D','E','F']
     for i,ax in enumerate(axs.flatten()):
         residual = momentum[0,:,ts[i]] - result[0][ts[i]]        
         ax.hist(residual,35,orientation='vertical')
-        ax.text(0.05, 0.5, labels[i], transform=ax.transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
+        ax.text(0.05, 0.35, labels[i], transform=ax.transAxes, fontsize=15, fontweight='bold', va='bottom', ha='left')
 
         per84 = numpy.percentile(residual,84.0)
         per16 = numpy.percentile(residual,16.0)
@@ -34,7 +34,7 @@ def plot(momentum,result):
     plt.close()
 
 def main():
-    parser = argparse.ArgumentParser("plot_scatter")
+    parser = argparse.ArgumentParser("plot_discussion")
     parser.add_argument("momentum")
     parser.add_argument("result")
     args = parser.parse_args()
