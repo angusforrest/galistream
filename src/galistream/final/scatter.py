@@ -48,9 +48,11 @@ def plot(momentum,result):
     plt.close()
     fig,ax = plt.subplots(1,1,figsize=(8,8))
     fig.set_tight_layout(True)
-    lz = momentum[1,:,20]
-    energy = momentum[0,:,20]
-    ax.scatter(lz,energy,s=1)
+    ax.scatter(momentum[1,:,12],momentum[0,:,12],s=1)
+    ax.scatter(momentum[1,:,20]+50,momentum[0,:,20],s=1)
+    ax.scatter(momentum[1,:,33]+100,momentum[0,:,33],s=1)
+    ax.set_yticks([])
+    ax.set_xticks([])
     ax.set_xlabel(r"Angular Momentum $L_z$ (kpc km s${}^{-1}$)")
     ax.set_ylabel(r"Total Energy $E$ (km${}^2$ s${}^{-2}$)")
     plt.savefig("figure_discussion2.png",dpi=600)
