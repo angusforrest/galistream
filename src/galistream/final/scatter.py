@@ -28,7 +28,7 @@ def plot(momentum,result):
     residual = momentum[0,:,-1]-result[0][-1]
     ax[0].scatter(momentum[1,:,-1],residual,s=1)
     ax[0].set_xlabel(r"$Angular Momentum L_z$ (kpc km s${}^{-1}$)")
-    ax[0].set_ylabel(r"$Total Energy Residuals \Delta E$ (km${}^2$ s${}^{-2}$)")
+    ax[0].set_ylabel(r"Total Energy Residuals $\Delta E$ (km${}^2$ s${}^{-2}$)")
     ax[0].text(0.05, 0.95, 'A', transform=ax[0].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
     ax[1].hist(residual,35,orientation='horizontal')
     ax[1].text(0.05, 0.95, 'B', transform=ax[1].transAxes, fontsize=10, fontweight='bold', va='bottom', ha='left')
@@ -50,13 +50,9 @@ def plot(momentum,result):
     fig.set_tight_layout(True)
     lz = momentum[1,:,12]
     energy = momentum[0,:,12]
-    residual = momentum[0,:,12]-result[0][12]
-    ax.scatter(momentum[1,:,12],residual,s=1)
+    ax.scatter(lz,energy,s=1)
     ax.set_xlabel(r"Angular Momentum $L_z$ (kpc km s${}^{-1}$)")
-    ax.set_ylabel(r"$Total Energy Residuals \Delta E$ (km${}^2$ s${}^{-2}$)")
-    #ax[1].scatter(momentum[1,:,-1],momentum[0,:,-1]-result[0][-1],s=1)
-    #ax[1].set_xlabel(r"$L_z$ (kpc km s${}^{-1}$)")
-    #ax[1].set_ylabel(r"$\Delta E$ (km${}^2$ s${}^{-2}$)")
+    ax.set_ylabel(r"Total Energy $E$ (km${}^2$ s${}^{-2}$)")
     plt.savefig("figure_discussion2.png",dpi=600)
     plt.close()
     
