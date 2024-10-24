@@ -36,7 +36,7 @@ def plot(momentum,result):
     fig.set_tight_layout(True)
     ts = [12,20,33]
     labels= ['A','C','E']
-    ax[0].set_ylabel(r"Total Energy Residuals $\Delta E$ (km${}^2$ s${}^{-2}$)")
+    axs[0].set_ylabel(r"Total Energy Residuals $\Delta E$ (km${}^2$ s${}^{-2}$)")
     for i,ax in enumerate(axs):
         lz = momentum[1,:,ts[i]]
         energy = momentum[1,:,ts[i]]
